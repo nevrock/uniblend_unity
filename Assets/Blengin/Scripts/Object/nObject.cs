@@ -173,8 +173,8 @@ namespace Ngin {
 
             return (T)o;
         }
-        public void AddComponent(string actorTypeName, Lexicon vars = null) {
-            Type classType = Utility.GetNginType(actorTypeName);
+        public void AddComponent(string componentTypeName, Lexicon vars = null) {
+            Type classType = Utility.GetNginType(componentTypeName);
 
             object o = null;
 
