@@ -1,0 +1,256 @@
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+namespace Ngin {
+    [System.Serializable]
+    public class nObject {
+        public nObject(string lexiconName) {
+            _data = Lexicon.FromResourcesLexicon(lexiconName);
+            _name = _data.Get<string>("name");
+            _children = new List<nObject>();
+            _childrenNames = new List<string>();
+        }
+        public nObject(string name, Lexicon data, nObject parent = null) {
+            _name = name;
+            _data = data;
+            _children = new List<nObject>();
+            _childrenNames = new List<string>();
+            if (parent != null) {
+                _parent = parent;
+                _parentName = parent._name;
+            }
+        }
+        // editor asset loading methods:
+        public void Setup() {
+            SetupComponents();
+            SetupChildren(_data.Get<Lexicon>("children", new Lexicon()));
+        }
+        public void Build() {
+            BuildGameObjects();
+            foreach (var child in _children) {
+                child.Build();
+            }
+        }
+
+        // runtime refresh to get the nObject references back
+        public void Refresh() {
+            Log.Console("Refreshing: " + _name);
+            Log.Console("Data entries count: " + _data.Length);
+            Log.Console("Children count: " + _childrenNames.Count);
+
+            _nGameObject = _gameObject.GetComponent<nGameObject>();
+            _children = new List<nObject>();
+            _components = new List<nComponent>();
+
+            if (_transform.parent != null) {
+                nGameObject parentNGameObject = _transform.parent.GetComponent<nGameObject>();
+                _parent = parentNGameObject.Object;
+            }
+
+            foreach (string childName in _childrenNames) {
+                Transform childTransform = _transform.Find(childName);
+                if (childTransform != null) {
+                    nObject child = childTransform.GetComponent<nGameObject>().Object;
+                    if (child != null)
+                        _children.Add(child);
+                }
+            }
+
+            foreach (var component in _gameObject.GetComponents<nComponent>()) {
+                _components.Add(component);
+            }
+        }
+
+        public GameObject GameObject {
+            get {
+            return _gameObject;
+            }
+        }
+        public List<GameObject> GetAllGameObjects(List<GameObject> currentList = null) {
+            if (currentList == null)
+                currentList = new List<GameObject>();
+            currentList.Add(_gameObject);
+            foreach (var child in _children) {
+                child.GetAllGameObjects(currentList);
+            }
+            return currentList;
+        }
+        public nGameObject NginGameObject {
+            get {
+            return _nGameObject;
+            }
+        }
+        public Transform Transform {
+            get {
+            return _transform;
+            }
+        }
+        
+        public void Debug() {
+            Log.Console("Object: " + _name + ", has children: " + _children.Count.ToString());
+            foreach (var child in _children) {
+                child.Debug();
+            }
+        }
+
+        public Lexicon Env {
+            get {
+                return _env;
+            }
+        }
+        public T GetEnv<T>(string name, T defaultVal = default(T)) {
+            return _env.Get<T>(name, defaultVal);
+        }
+        public void SetEnv<T>(string name, T value) {
+            _env.Set(name, value);
+        }
+
+
+         public T GetComponent<T>(bool forceAdd = false) where T : nComponent {
+            foreach (nComponent comp in this._components)
+            {
+                if (comp is T val)
+                {
+                    return val;
+                }
+            }
+            if (forceAdd)
+            {
+                return AddComponent<T>();
+            }
+            return default(T);
+        }
+        public List<T> GetComponents<T>() where T : nComponent {
+            List<T> bagOut = new List<T>();
+
+            foreach (nComponent comp in this._components)
+            {
+                if (comp is T val)
+                {
+                    bagOut.Add(val);
+                }
+            }
+
+            return bagOut;
+        }
+        public List<T> GetChildComponents<T>(bool isLimitedToFirstLevel = false) where T : nComponent {
+            List<T> bagOut = GetComponents<T>();
+            foreach (nObject n in this._children)
+            {
+                if (n != null)
+                {
+                    if (isLimitedToFirstLevel)
+                    {
+                        bagOut.AddRange(n.GetComponents<T>());
+                    } else
+                    {
+                        bagOut.AddRange(n.GetChildComponents<T>());
+                    }
+                }
+            }
+            return bagOut;
+        }
+        public T AddComponent<T>(Lexicon vars = null) where T : nComponent {
+            Type classType = typeof(T);
+
+            object o = null;
+
+            Component component = _gameObject.GetComponent(classType);
+            if (component == null)
+                component = _gameObject.AddComponent(classType);
+
+            o = component as object;
+
+            nComponent a = o as nComponent;
+
+            if (vars == null)
+                vars = new Lexicon();
+                
+            a.Link(this, vars);
+
+            this._components.Add(a);
+
+            return (T)o;
+        }
+        public void AddComponent(string actorTypeName, Lexicon vars = null) {
+            Type classType = Utility.GetNginType(actorTypeName);
+
+            object o = null;
+
+            Component component = _gameObject.GetComponent(classType);
+            if (component == null)
+                component = _gameObject.AddComponent(classType);
+
+            o = component as object;
+
+            nComponent a = o as nComponent;
+
+            if (vars == null)
+                vars = new Lexicon();
+                
+            a.Link(this, vars);
+
+            this._components.Add(a);
+        }
+
+        public static nObject Spawn(string name) {
+            // attempt to spawn from prefab
+            GameObject prefab = Resources.Load<GameObject>("Object/" + name);
+            if (prefab != null) {
+                GameObject go = GameObject.Instantiate(prefab);
+                nObject nObj = go.GetComponent<nGameObject>().Object;
+                return nObj;
+            } return null;
+        }
+
+        public string _name;
+        public Transform _transform;
+        public GameObject _gameObject;
+        public List<string> _childrenNames;
+        public string _parentName;
+
+        public Lexicon _data;
+        public Lexicon _env;
+
+        private nGameObject _nGameObject;
+        private nObject _parent;
+        private List<nObject> _children;
+        private List<nComponent> _components;
+
+        void BuildGameObjects() {
+            _gameObject = new GameObject(_name);
+            _transform = _gameObject.transform;
+            if (_parent != null) {
+                _gameObject.transform.SetParent(_parent.Transform);
+                _gameObject.transform.localPosition = Vector3.zero;
+            }
+            _nGameObject = _gameObject.AddComponent<nGameObject>();
+            _nGameObject.Link(this);
+        }
+        void SetupComponents() {
+            var components = _data.Get<Lexicon>("components", null);
+            if (components == null)
+                return;
+            foreach (var component in components.Objects) {
+                var componentData = component.Value as Lexicon;
+                var componentName = component.Key;
+                string type = componentData.Get<string>("type");
+                AddComponent(type, componentData);
+            }
+        }
+        void SetupChildren(Lexicon children) {
+            foreach (var child in children.Objects) {
+                var childData = child.Value as Lexicon;
+                var childName = child.Key;
+
+                nObject nChild = new nObject(childName, childData, this);
+                nChild.Setup();
+
+                _children.Add(nChild);
+
+                _childrenNames.Add(childName);
+            }
+        }
+    }
+}
