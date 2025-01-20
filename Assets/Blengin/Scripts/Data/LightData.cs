@@ -1,0 +1,24 @@
+namespace Ngin {
+    using System.Collections.Generic;
+    using UnityEngine;
+    [System.Serializable]
+    public class LightData : nData {
+
+        public string name;
+        public bool isSun;
+        public Color color;
+        public float intensity;
+        public string shadowType;
+
+        public LightData(string name) {
+            this.name = name;
+        }
+        public override void LoadFromLexicon(Lexicon lexicon) {
+            name = lexicon.Get<string>("name", "light");
+            isSun = lexicon.Get<bool>("isSun", true);
+            color = lexicon.GetColor("color", Color.white);
+            intensity = lexicon.Get<float>("intensity", 1f);
+            shadowType = lexicon.Get<string>("shadowType", "Soft");
+        }
+    }
+}

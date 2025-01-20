@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Ngin {
-    public class nCamera : MonoBehaviour {
+    public class nCamera : nComponent {
         public Camera camera;
         void Awake() {
             camera = GetComponent<Camera>();

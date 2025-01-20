@@ -70,6 +70,34 @@ namespace Ngin
             }
             return defaultVal;
         }
+        public Vector3 GetVector3(string name, Vector3 defaultVal = default(Vector3)) {
+            List<float> vec = Get<List<float>>(name, null);
+            if (vec != null && vec.Count == 3) {
+                return new Vector3(vec[0], vec[1], vec[2]);
+            } else {
+                return defaultVal;
+            }
+        }
+        public Color GetColor(string name, Color defaultVal = default(Color)) {
+            List<float> vec = Get<List<float>>(name, null);
+            if (vec != null && vec.Count == 4) {
+                return new Color(vec[0], vec[1], vec[2], vec[3]);
+            } else if (vec != null && vec.Count == 3)  {
+                return new Color(vec[0], vec[1], vec[2]);
+            } else {
+                return defaultVal;
+            }
+        }
+        public Quaternion GetQuaternion(string name, Quaternion defaultVal = default(Quaternion)) {
+            List<float> vec = Get<List<float>>(name, null);
+            if (vec != null && vec.Count == 4) {
+                return new Quaternion(vec[0], vec[1], vec[2], vec[3]);
+            } else if (vec != null && vec.Count == 3) {
+                return Quaternion.Euler(vec[0], vec[1], vec[2]);
+            } else {
+                return defaultVal;
+            }
+        }
         public void Set<T>(string name, T val)
         {
             if (Objects == null)

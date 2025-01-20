@@ -1,0 +1,34 @@
+name: Plane
+faces: 
+    0: 
+        vertices: 
+            0: 
+                position: [12.0, 0.0, -12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [1.0, 0.0]
+            1: 
+                position: [-12.0, 0.0, 12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [0.0, 1.0]
+            2: 
+                position: [-12.0, 0.0, -12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [0.0, 0.0]
+        normal: [0.0, 1.0, 0.0]
+    1: 
+        vertices: 
+            0: 
+                position: [12.0, 0.0, -12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [1.0, 0.0]
+            1: 
+                position: [12.0, 0.0, 12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [1.0, 1.0]
+            2: 
+                position: [-12.0, 0.0, 12.0]
+                normal: [0.0, 1.0, 0.0]
+                uv: [0.0, 1.0]
+        normal: [0.0, 1.0, 0.0]
+smoothShading: false
+isAnim: false

@@ -1,13 +1,33 @@
 using UnityEngine;
 
 namespace Ngin {
-    public class nLight : MonoBehaviour {
+    public class nLight : nComponent {
+        [ReadOnly]
         public Light light;
-        void Awake() {
-            light = GetComponent<Light>();
-            if (light == null) {
-                Debug.LogError("Light component not found.");
-            }
+        public LightData lightData;
+
+        protected override void AddClasses() {
+            light = ComponentCheck<Light>(true);
         }
+        protected override void StoreData(Lexicon data) {
+            lightData = new LightData(data.Get<string>("name", "light"));
+            lightData.LoadFromLexicon(data);
+        }
+
+        protected override void Launch() {
+            if (lightData.isSun)
+                light.type = LightType.Directional;
+            else
+                light.type = LightType.Point;
+
+            light.shadows = LightShadows.Soft;
+            light.intensity = 1.0f;
+            light.bounceIntensity = 1.0f;
+            light.range = 10.0f;
+        }
+
+
+        // data
+        
     }
 }

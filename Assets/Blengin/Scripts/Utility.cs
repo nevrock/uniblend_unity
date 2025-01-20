@@ -26,9 +26,8 @@ namespace Ngin
             Type componentType = Type.GetType(typeName);
             return componentType;
         }
-        public static Type GetNginType(string jsonFormat)
+        public static Type GetNginType(string typeString)
         {
-            string typeString = ConvertNginStringToUnity(jsonFormat);
             if (!typeString.Contains("Ngin."))
             {
                 typeString = "Ngin." + typeString;                

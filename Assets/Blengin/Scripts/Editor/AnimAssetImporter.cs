@@ -4,7 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using Ngin;
 
-[UnityEditor.AssetImporters.ScriptedImporter(1, "nanim")]
+[UnityEditor.AssetImporters.ScriptedImporter(1, "nanm")]
 public class AnimAssetImporter : UnityEditor.AssetImporters.ScriptedImporter
 {
     public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)

@@ -29,5 +29,12 @@ namespace Ngin {
         public const string SceneStart = "Scene/Start";
         public const string EnvSave = "Env";
         public const string EnvLoad = "Env";
+
+        public const string ResourcesMesh = "Mesh/";
+        public const string ResourcesMaterial = "Material/";
+        public const string ResourcesTexture = "Texture/";
+        
+        public const string Armature = "Armature";
+        
     }
 }

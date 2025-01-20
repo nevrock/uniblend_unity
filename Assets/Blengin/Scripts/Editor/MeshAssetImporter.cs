@@ -7,6 +7,16 @@ using TB;
 
 [UnityEditor.AssetImporters.ScriptedImporter(1, "nmsh")]
 public class MeshAssetImporter : UnityEditor.AssetImporters.ScriptedImporter {
+    private Vector2 RotateUV(Vector2 uv, float angle) {
+        float rad = angle * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+        return new Vector2(
+            cos * uv.x - sin * uv.y,
+            sin * uv.x + cos * uv.y
+        );
+    }
+
     public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx) {
         Lexicon lexicon = Lexicon.FromLexiconFilePath(ctx.assetPath);
         Mesh mesh = new Mesh();
@@ -34,8 +44,14 @@ public class MeshAssetImporter : UnityEditor.AssetImporters.ScriptedImporter {
                 var uvBag = vertex.Get<List<float>>("uv");
 
                 vertices.Add(new Vector3(positionBag[0], positionBag[1], positionBag[2]));
+                Debug.Log("Position: " + positionBag[0] + ", " + positionBag[1] + ", " + positionBag[2]);
                 normals.Add(new Vector3(normalBag[0], normalBag[1], normalBag[2]));
-                uvs.Add(new Vector2(uvBag[0], uvBag[1]));
+                Debug.Log("Normal: " + normalBag[0] + ", " + normalBag[1] + ", " + normalBag[2]);
+                Debug.Log("UV: " + uvBag[0] + ", " + uvBag[1]); 
+                
+                Vector2 uv = new Vector2(uvBag[0], uvBag[1]);
+                //uv = RotateUV(uv, 90.0f); // Rotate UVs by 90 degrees
+                uvs.Add(uv);
 
                 if (isAnim) {
                     var boneWeightsBag = vertex.Get<List<float>>("boneWeights");
@@ -50,9 +66,9 @@ public class MeshAssetImporter : UnityEditor.AssetImporters.ScriptedImporter {
 
             // Triangulate the face
             if (vertexCount == 3) {
-                triangles.Add(baseIndex);
                 triangles.Add(baseIndex + 2);
                 triangles.Add(baseIndex + 1);
+                triangles.Add(baseIndex);
             } else if (vertexCount == 4) {
                 triangles.Add(baseIndex);
                 triangles.Add(baseIndex + 2);

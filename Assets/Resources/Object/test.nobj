@@ -1,0 +1,189 @@
+name: test
+children: 
+    Plane: 
+        name: Plane
+        children: 
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Plane
+    Sphere: 
+        name: Sphere
+        children: 
+        transform: 
+            position: [9.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Armature: 
+        name: Armature
+        children: 
+            Armature: 
+                name: Armature
+                children: 
+                    Bone: 
+                        name: Bone
+                        transform: 
+                            position: [0.0, 0.0, 0.0]
+                            rotation: [-2.5044781608585254e-06, 0.0, 0.0]
+                            scale: [1.0, 1.0, 1.0]
+                        children: 
+                            Bone.001: 
+                                name: Bone.001
+                                transform: 
+                                    position: [0.0, 1.0, 0.0]
+                                    rotation: [-2.5044781608585254e-06, -6.830189170012751e-06, 0.0]
+                                    scale: [1.0, 1.0, 1.0]
+                                children: 
+                components: 
+                    nAnimator: 
+                        type: nAnimator
+            CubeAnimated: 
+                thisIsATest: helloThere!
+                name: CubeAnimated
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        mesh: CubeAnimated
+                        bones: [Bone]
+                        materials: [MetallicPalette]
+            CubeAnimated.002: 
+                thisIsATest: helloThere!
+                name: CubeAnimated.002
+                children: 
+                transform: 
+                    position: [0.0, 1.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        mesh: CubeAnimated.002
+                        bones: [Bone.001]
+                        materials: [MetallicPalette]
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+    Sun: 
+        name: Sun
+        children: 
+            Sun: 
+                name: Sun
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [90.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    light: 
+                        type: nLight
+                        color: [1.0, 1.0, 1.0]
+                        intensity: 1.0
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, -45.00000125223908, -22.000000043023345]
+            scale: [1.0, 1.0, 1.0]
+    Sphere.001: 
+        name: Sphere.001
+        children: 
+        transform: 
+            position: [6.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Sphere.002: 
+        name: Sphere.002
+        children: 
+        transform: 
+            position: [3.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Sphere.004: 
+        name: Sphere.004
+        children: 
+        transform: 
+            position: [-3.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Sphere.005: 
+        name: Sphere.005
+        children: 
+        transform: 
+            position: [-6.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Sphere.006: 
+        name: Sphere.006
+        children: 
+        transform: 
+            position: [-9.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Sphere
+                materials: [MetallicPalette]
+    Cube: 
+        name: Cube
+        children: 
+        transform: 
+            position: [4.0, 3.0, 6.0]
+            rotation: [-9.99999970909292, 31.999999752116263, -39.00000108527387]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                mesh: Cube
+                materials: [MetallicPalette]
+    Point: 
+        name: Point
+        children: 
+            Point: 
+                name: Point
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    light: 
+                        type: nLight
+                        isSun: false
+                        color: [1.0, 1.0, 1.0]
+                        intensity: 800.0
+        transform: 
+            position: [-2.0, 4.0, 1.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]

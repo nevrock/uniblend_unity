@@ -2,13 +2,45 @@ using UnityEngine;
 namespace Ngin {
     public class nComponent : MonoBehaviour {
         public void Link(nObject obj, Lexicon data) {
-            _nObject = obj;
-            _data = data;
+            Object = obj;
+            StoreData(data);
         }
-        public nObject NginObject {
-            get { return _nObject; }
+        public nObject Object;
+
+        void Awake() {
+            AddClasses();
+            Setup();
         }
-        nObject _nObject;
-        Lexicon _data;
+        void Start() {
+            Launch();
+        }
+        void Update() {
+            Tick();
+        }
+        void FixedUpdate() {
+            TickPhysics();
+        }
+
+        public virtual void EditorRefresh() {
+            AddClasses();
+            Setup();
+            Launch();
+        }
+
+        protected virtual void StoreData(Lexicon data) {}
+        protected virtual void AddClasses() {}
+        protected virtual void Setup() {}
+        protected virtual void Launch() {}
+        protected virtual void Tick() {}
+        protected virtual void TickPhysics() {}
+
+        public T ComponentCheck<T>(bool forceAdd = true) where T : Component
+        {
+            T val = this.gameObject.GetComponent<T>();
+            if (val == null && forceAdd)
+                return this.gameObject.AddComponent<T>();
+
+            return val;
+        }
     }
 }

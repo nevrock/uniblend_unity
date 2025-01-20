@@ -23,14 +23,31 @@ namespace Ngin {
         }
         // editor asset loading methods:
         public void Setup() {
-            SetupComponents();
+            _transformData = new TransformData();
+            _transformData.LoadFromLexicon(_data.Get<Lexicon>("transform", new Lexicon()));
+
             SetupChildren(_data.Get<Lexicon>("children", new Lexicon()));
         }
         public void Build() {
             BuildGameObjects();
+            SetupComponents();
             foreach (var child in _children) {
                 child.Build();
             }
+
+            _transformData.Apply();
+        }
+        public void EditorRefresh() {
+            foreach (var component in _components) {
+                component.EditorRefresh();
+            }
+            foreach (var child in _children) {
+                child.EditorRefresh();
+            }
+        }
+        public void Update() {
+            if (_transformData != null)
+                _transformData.Apply();
         }
 
         // runtime refresh to get the nObject references back
@@ -86,11 +103,41 @@ namespace Ngin {
             return _transform;
             }
         }
+        public TransformData TransformData {
+            get {
+                return _transformData;
+            }
+        }
+
+        public Vector3 Position {
+            get {
+                return _transformData.Position;
+            }
+            set {
+                _transformData.Position = value;
+            }
+        }
+        public Vector3 Scale {
+            get {
+                return _transformData.Scale;
+            }
+            set {
+                _transformData.Scale = value;
+            }
+        }
+        public Quaternion Rotation {
+            get {
+                return _transformData.Rotation;
+            }
+            set {
+                _transformData.Rotation = value;
+            }
+        }
         
-        public void Debug() {
+        public void LogConsole() {
             Log.Console("Object: " + _name + ", has children: " + _children.Count.ToString());
             foreach (var child in _children) {
-                child.Debug();
+                child.LogConsole();
             }
         }
 
@@ -174,6 +221,8 @@ namespace Ngin {
             return (T)o;
         }
         public void AddComponent(string componentTypeName, Lexicon vars = null) {
+            Debug.Log("Adding component: " + componentTypeName);
+            
             Type classType = Utility.GetNginType(componentTypeName);
 
             object o = null;
@@ -209,6 +258,7 @@ namespace Ngin {
         public GameObject _gameObject;
         public List<string> _childrenNames;
         public string _parentName;
+        public TransformData _transformData;
 
         public Lexicon _data;
         public Lexicon _env;
@@ -221,6 +271,7 @@ namespace Ngin {
         void BuildGameObjects() {
             _gameObject = new GameObject(_name);
             _transform = _gameObject.transform;
+            _transformData.Link(_transform);
             if (_parent != null) {
                 _gameObject.transform.SetParent(_parent.Transform);
                 _gameObject.transform.localPosition = Vector3.zero;
@@ -229,6 +280,7 @@ namespace Ngin {
             _nGameObject.Link(this);
         }
         void SetupComponents() {
+            _components = new List<nComponent>();
             var components = _data.Get<Lexicon>("components", null);
             if (components == null)
                 return;
@@ -240,6 +292,7 @@ namespace Ngin {
             }
         }
         void SetupChildren(Lexicon children) {
+            _children =new List<nObject>();
             foreach (var child in children.Objects) {
                 var childData = child.Value as Lexicon;
                 var childName = child.Key;

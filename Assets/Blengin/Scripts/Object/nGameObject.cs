@@ -12,6 +12,11 @@ namespace Ngin {
                 }
             }
         }
+        void Update() {
+            if (Application.isPlaying && Object != null) {
+                Object.Update();
+            }
+        }
 
         public nObject Object;
     }

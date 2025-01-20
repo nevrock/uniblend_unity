@@ -14,6 +14,7 @@ public class PrefabAssetImporter : ScriptedImporter {
         nObject obj = new nObject(name, lexicon);
         obj.Setup();
         obj.Build();
+        obj.EditorRefresh();
 
         List<GameObject> allObjects = obj.GetAllGameObjects();
         foreach (var go in allObjects) {
