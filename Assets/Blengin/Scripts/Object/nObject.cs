@@ -34,6 +34,7 @@ namespace Ngin {
             foreach (var child in _children) {
                 child.Build();
             }
+            _transformData.Link(_transform);
 
             _transformData.Apply();
         }

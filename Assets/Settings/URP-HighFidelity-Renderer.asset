@@ -54,10 +54,10 @@ MonoBehaviour:
     textureId: _ScreenTexture
     Preview: 0
     Offset: 0
-    Area: 0.39
+    Area: 1.91
     Spread: 1
     Samples: 32
-    Radius: 1
+    Radius: 0.659
     UseDistortion: 1
     CubicDistortion: 5
     DistortionScale: 1

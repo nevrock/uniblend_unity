@@ -1,4 +1,4 @@
-name: test
+name: Start
 children: 
     Plane: 
         name: Plane
@@ -46,6 +46,7 @@ children:
                 components: 
                     nAnimator: 
                         type: nAnimator
+                        animations: [ActionBase, ActionBase.001]
             CubeAnimated: 
                 thisIsATest: helloThere!
                 name: CubeAnimated
@@ -187,3 +188,17 @@ children:
             position: [-2.0, 4.0, 1.0]
             rotation: [0.0, 0.0, 0.0]
             scale: [1.0, 1.0, 1.0]
+    Camera: 
+        name: Camera
+        children: 
+        transform: 
+            position: [-0.4569297432899475, 8.332971572875977, -14.107525825500488]
+            rotation: [21.199996264081804, 1.1999991369307137, -1.2893762069820989e-06]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            camera: 
+                type: nCamera
+                isOrthographic: false
+                focalLength: 50.0
+                near: 0.10000000149011612
+                far: 1000.0

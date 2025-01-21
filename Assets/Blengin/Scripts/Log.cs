@@ -7,7 +7,7 @@ namespace Ngin
         private static Lexicon Vars {
             get {
                 if (vars == null)
-                    vars = Lexicon.FromResourcesLexicon("settings");
+                    vars = Lexicon.FromResourcesLexicon("Prefs");
 
                 return vars;
             }

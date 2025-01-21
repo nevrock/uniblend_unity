@@ -32,6 +32,9 @@ namespace Ngin {
             _transform = transform;
         }
         public void Apply() {
+            if (_transform == null) {
+                return;
+            }
             _transform.position = _position;
             _transform.rotation = _rotation;
             _transform.localScale = _scale;
