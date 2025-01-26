@@ -1,11 +1,11 @@
 using UnityEngine;
 namespace Ngin {
     public class nComponent : MonoBehaviour {
-        public void Link(nObject obj, Lexicon data) {
+        public void Link(IObject obj, Lexicon data) {
             Object = obj;
             StoreData(data);
         }
-        public nObject Object;
+        public IObject Object;
 
         void Awake() {
             AddClasses();

@@ -1,14 +1,23 @@
 namespace Ngin {
     using UnityEngine;
     public class NginSystem : MonoBehaviour {
-        public string startObject = "Start";
+
         void Awake() {
             _origin = nObject.Spawn(startObject);
+            Debug.Log("Origin: " + _origin);
+            _gui = nGuiObject.Spawn(guiObject);
+            Debug.Log("Gui: " + _gui);
         }
         void Start() {
-            _origin.LogConsole();
+            //_origin.LogConsole();
+            //_gui.LogConsole();
+            Game.Scene = "Start";
         }
 
-        nObject _origin;
+        public string startObject = "Start";
+        public string guiObject = "Gui";
+
+        IObject _origin;
+        IObject _gui;
     }
 }

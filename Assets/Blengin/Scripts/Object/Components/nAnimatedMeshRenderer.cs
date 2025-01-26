@@ -50,7 +50,7 @@ namespace Ngin {
         }
 
         nAnimator FindArmature() {
-            Transform armature = transform.parent.Find(Ngin.Armature);
+            Transform armature = transform.parent.Find("Armature");
             if (armature == null) {
                 Debug.LogError("Armature not found.");
             }

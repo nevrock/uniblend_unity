@@ -4,26 +4,25 @@ using System;
 
 namespace Ngin {
     [System.Serializable]
-    public class nObject : IObject {
+    public class nGuiObject : IObject {
 
-        public Transform _transform;
-        public TransformData _transformData;
-        public nWorldGameObject _nGameObject;
+        public RectTransform _rectTransform;
+        public RectData _rectData;
+        public nGuiGameObject _nGameObject;
 
-        private nObject _parent;
-        private List<nObject> _children;
+        private nGuiObject _parent;
+        private List<nGuiObject> _children;
 
-
-        public nObject(string lexiconName) {
+        public nGuiObject(string lexiconName) {
             _data = Lexicon.FromResourcesLexicon(lexiconName);
             _name = _data.Get<string>("name");
-            _children = new List<nObject>();
+            _children = new List<nGuiObject>();
             _childrenNames = new List<string>();
         }
-        public nObject(string name, Lexicon data, nObject parent = null) {
+        public nGuiObject(string name, Lexicon data, nGuiObject parent = null) {
             _name = name;
             _data = data;
-            _children = new List<nObject>();
+            _children = new List<nGuiObject>();
             _childrenNames = new List<string>();
             if (parent != null) {
                 _parent = parent;
@@ -32,8 +31,8 @@ namespace Ngin {
         }
         // editor asset loading methods:
         public void Setup() {
-            _transformData = new TransformData();
-            _transformData.LoadFromLexicon(_data.Get<Lexicon>("transform", new Lexicon()));
+            _rectData = new RectData();
+            _rectData.LoadFromLexicon(_data.Get<Lexicon>("rect", new Lexicon()));
 
             SetupChildren(_data.Get<Lexicon>("children", new Lexicon()));
         }
@@ -43,9 +42,9 @@ namespace Ngin {
             foreach (var child in _children) {
                 child.Build();
             }
-            _transformData.Link(_transform);
+            _rectData.Link(_rectTransform);
 
-            _transformData.Apply();
+            _rectData.Apply();
         }
         public void EditorRefresh() {
             foreach (var component in _components) {
@@ -56,28 +55,28 @@ namespace Ngin {
             }
         }
         public void Update() {
-            if (_transformData != null)
-                _transformData.Apply();
+            if (_rectData != null)
+                _rectData.Apply();
         }
 
-        // runtime refresh to get the nObject references back
+        // runtime refresh to get the nGuiObject references back
         public void Refresh() {
             Log.Console("Refreshing: " + _name);
             Log.Console("Children count: " + _childrenNames.Count);
 
-            _nGameObject = _gameObject.GetComponent<nWorldGameObject>();
-            _children = new List<nObject>();
+            _nGameObject = _gameObject.GetComponent<nGuiGameObject>();
+            _children = new List<nGuiObject>();
             _components = new List<nComponent>();
 
-            if (_transform.parent != null) {
-                nWorldGameObject parentNGameObject = _transform.parent.GetComponent<nWorldGameObject>();
-                _parent = parentNGameObject.Object as nObject;
+            if (_rectTransform.parent != null) {
+                nGuiGameObject parentNGameObject = _rectTransform.parent.GetComponent<nGuiGameObject>();
+                _parent = parentNGameObject.Object as nGuiObject;
             }
 
             foreach (string childName in _childrenNames) {
-                Transform childTransform = _transform.Find(childName);
+                RectTransform childTransform = _rectTransform.Find(childName) as RectTransform;
                 if (childTransform != null) {
-                    nObject child = childTransform.GetComponent<nWorldGameObject>().Object as nObject;
+                    nGuiObject child = childTransform.GetComponent<nGuiGameObject>().Object as nGuiObject;
                     if (child != null)
                         _children.Add(child);
                 }
@@ -102,44 +101,60 @@ namespace Ngin {
             }
             return currentList;
         }
-        public nWorldGameObject NginGameObject {
+        public nGuiGameObject NginGameObject {
             get {
             return _nGameObject;
             }
         }
-        public Transform Transform {
+        public RectTransform RectTransform {
             get {
-            return _transform;
+            return _rectTransform;
             }
         }
-        public TransformData TransformData {
+        public RectData RectData {
             get {
-                return _transformData;
+                return _rectData;
             }
         }
 
-        public Vector3 Position {
+        public Vector2 Position {
             get {
-                return _transformData.Position;
+                return _rectData.Position;
             }
             set {
-                _transformData.Position = value;
+                _rectData.Position = value;
             }
         }
-        public Vector3 Scale {
+        public Vector2 Size {
             get {
-                return _transformData.Scale;
+                return _rectData.Size;
             }
             set {
-                _transformData.Scale = value;
+                _rectData.Size = value;
             }
         }
-        public Quaternion Rotation {
+        public Vector2 AnchorMin {
             get {
-                return _transformData.Rotation;
+                return _rectData.AnchorMin;
             }
             set {
-                _transformData.Rotation = value;
+                _rectData.AnchorMin = value;
+            }
+        }
+        public Vector2 AnchorMax {
+            get {
+                return _rectData.AnchorMax;
+            }
+            set {
+                _rectData.AnchorMax = value;
+            }
+        }
+        public Vector2 Pivot {
+            get {
+                return _rectData.Pivot;
+            }
+            set {
+                _rectData.Pivot = value;
             }
         }
         
@@ -162,8 +177,7 @@ namespace Ngin {
             _env.Set(name, value);
         }
 
-
-         public T GetComponent<T>(bool forceAdd = false) where T : nComponent {
+        public T GetComponent<T>(bool forceAdd = false) where T : nComponent {
             foreach (nComponent comp in this._components)
             {
                 if (comp is T val)
@@ -192,7 +206,7 @@ namespace Ngin {
         }
         public List<T> GetChildComponents<T>(bool isLimitedToFirstLevel = false) where T : nComponent {
             List<T> bagOut = GetComponents<T>();
-            foreach (nObject n in this._children)
+            foreach (nGuiObject n in this._children)
             {
                 if (n != null)
                 {
@@ -253,28 +267,15 @@ namespace Ngin {
         }
 
         public static IObject Spawn(string name, 
-                                    Transform parent = null,
+                                    RectTransform parent = null,
                                     bool isZeroOut = true) {
             // attempt to spawn from prefab
             GameObject prefab = Resources.Load<GameObject>("Object/" + name);
             if (prefab != null) {
                 GameObject go = GameObject.Instantiate(prefab);
-                Debug.Log("Spawned: " + go.name);
-                IObject nObj = go.GetComponent<nWorldGameObject>().Object as IObject;
-                Debug.Log("nObj: " + nObj);
-                if (parent != null) {
-                    go.transform.SetParent(parent);
-                    if (isZeroOut) {
-                        go.transform.localPosition = Vector3.zero;
-                        go.transform.localRotation = Quaternion.identity;
-                        go.transform.localScale = Vector3.one;
-                    }
-                }
+                IObject nObj = go.GetComponent<nGuiGameObject>().Object as IObject;
                 return nObj;
-            } else {
-                Debug.LogError("Prefab not found: " + name);
-            } 
-            return null;
+            } return null;
         } 
         public string Name {
             get {
@@ -287,13 +288,13 @@ namespace Ngin {
 
         void BuildGameObjects() {
             _gameObject = new GameObject(_name);
-            _transform = _gameObject.transform;
-            _transformData.Link(_transform);
+            _rectTransform = _gameObject.AddComponent<RectTransform>();
+            _rectData.Link(_rectTransform);
             if (_parent != null) {
-                _gameObject.transform.SetParent(_parent.Transform);
+                _gameObject.transform.SetParent(_parent.RectTransform);
                 _gameObject.transform.localPosition = Vector3.zero;
             }
-            _nGameObject = _gameObject.AddComponent<nWorldGameObject>();
+            _nGameObject = _gameObject.AddComponent<nGuiGameObject>();
             _nGameObject.Link(this);
         }
         void SetupComponents() {
@@ -309,12 +310,12 @@ namespace Ngin {
             }
         }
         void SetupChildren(Lexicon children) {
-            _children =new List<nObject>();
+            _children = new List<nGuiObject>();
             foreach (var child in children.Objects) {
                 var childData = child.Value as Lexicon;
                 var childName = child.Key;
 
-                nObject nChild = new nObject(childName, childData, this);
+                nGuiObject nChild = new nGuiObject(childName, childData, this);
                 nChild.Setup();
 
                 _children.Add(nChild);

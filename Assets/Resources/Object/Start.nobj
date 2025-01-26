@@ -188,8 +188,8 @@ children:
             position: [-2.0, 4.0, 1.0]
             rotation: [0.0, 0.0, 0.0]
             scale: [1.0, 1.0, 1.0]
-    Camera: 
-        name: Camera
+    CameraMain: 
+        name: CameraMain
         children: 
         transform: 
             position: [-0.4569297432899475, 8.332971572875977, -14.107525825500488]
@@ -199,6 +199,6 @@ children:
             camera: 
                 type: nCamera
                 isOrthographic: false
-                focalLength: 50.0
+                focalLength: 49.999935150146484
                 near: 0.10000000149011612
                 far: 1000.0

@@ -31,10 +31,10 @@ namespace Ngin {
             }
         }
         public Material GetMaterial(int index) {
-            return Resources.Load<Material>(Ngin.ResourcesMaterial + materials[index]);
+            return Assets.GetMaterial(materials[index]);
         }
         public Mesh GetMesh() {
-            return Resources.Load<Mesh>(Ngin.ResourcesMesh + name);
+            return Assets.GetMesh(name);
         }
     }
 }

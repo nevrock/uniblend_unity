@@ -5,13 +5,13 @@ using System.IO;
 using System.Collections.Generic;
 using Ngin;
 
-[ScriptedImporter(1, "nobj")]
-public class PrefabAssetImporter : ScriptedImporter {
+[ScriptedImporter(1, "ngui")]
+public class GuiPrefabAssetImporter : ScriptedImporter {
     public override void OnImportAsset(AssetImportContext ctx) {
         // Read the file content as a Lexicon
         Lexicon lexicon = Lexicon.FromLexiconFilePath(ctx.assetPath);
         string name = Path.GetFileNameWithoutExtension(ctx.assetPath);
-        nObject obj = new nObject(name, lexicon);
+        nGuiObject obj = new nGuiObject(name, lexicon);
         obj.Setup();
         obj.Build();
         obj.EditorRefresh();

@@ -1,25 +1,41 @@
 using UnityEngine;
+using System.IO;
+using System;
+using System.Collections.Generic;
+
 namespace Ngin {
     public static class Ngin {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void Init() {
-            _env = Lexicon.FromResourcesLexicon(EnvLoad);
-        }
-
-        private static void OnRuntimeMethodLoad() {
-            Init();
         }
 
         public static T GetEnv<T>(string name, T defaultVal = default(T)) {
-            return _env.Get<T>(name, defaultVal);
+            return Env.Get<T>(name, defaultVal);
         }
         public static void SetEnv<T>(string name, T value) {
-            _env.Set(name, value);
+            Env.Set(name, value);
         }
 
         public static void SaveEnv() {
             _env.WriteSave(EnvSave);
         }
+        public static void RefreshEnv() {
+            string envSavePath = Application.persistentDataPath + "/saves/" + EnvSave;
+            if (!System.IO.File.Exists(EnvSave)) {
+                _env = Lexicon.FromResourcesLexicon(EnvLoad);
+            } else {
+                _env = Lexicon.FromLexiconFileSave(EnvSave);
+            }
+        }
+        public static Lexicon Env {
+            get {
+                if (_env == null) {
+                    RefreshEnv();
+                }
+                return _env;
+            }
+        }
+
         public static string Game;
 
 
@@ -29,12 +45,6 @@ namespace Ngin {
         public const string SceneStart = "Scene/Start";
         public const string EnvSave = "Env";
         public const string EnvLoad = "Env";
-
-        public const string ResourcesMesh = "Mesh/";
-        public const string ResourcesMaterial = "Material/";
-        public const string ResourcesTexture = "Texture/";
-        
-        public const string Armature = "Armature";
         
     }
 }

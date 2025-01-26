@@ -24,6 +24,9 @@ namespace Ngin {
             }
             camera.nearClipPlane = nearClipPlane;
             camera.farClipPlane = farClipPlane;
+
+            Ngin.SetEnv<nCamera>($"Camera:{this.Object.GetName()}", this);
+
         }
 
         public bool isOrthographic;

@@ -1,6 +1,7 @@
 using UnityEngine;
 namespace Ngin {
-    public class nGameObject : MonoBehaviour {
+    public class nWorldGameObject : MonoBehaviour {
+        
         public void Link(nObject obj) {
             Object = obj;
         }
