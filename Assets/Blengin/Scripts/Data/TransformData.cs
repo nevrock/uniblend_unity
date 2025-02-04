@@ -50,15 +50,56 @@ namespace Ngin {
             get { return _position; }
             set { _position = value; }
         }
+        public Vector3 position {
+            get {
+                return _position;
+            }
+            set {
+                _position = value;
+            }
+        }
         protected Quaternion _rotation;
         public Quaternion Rotation {
             get { return _rotation; }
             set { _rotation = value; }
         }
+        public Quaternion rotation {
+            get {
+                return _rotation;
+            }
+            set {
+                _rotation = value;
+            }
+        }
         protected Vector3 _scale;
         public Vector3 Scale {
             get { return _scale; }
             set { _scale = value; }
+        }
+        public Vector3 scale {
+            get {
+                return _scale;
+            }
+            set {
+                _scale = value;
+            }
+        }
+
+        public Vector3 up {
+            get {
+                return _rotation * Vector3.up;
+            } 
+            set {
+                _rotation = Quaternion.FromToRotation(Vector3.up, value);
+            }
+        }
+        public Vector3 right {
+            get {
+                return _rotation * Vector3.right;
+            } 
+            set {
+                _rotation = Quaternion.FromToRotation(Vector3.right, value);
+            }
         }
 
         protected Transform _transform;

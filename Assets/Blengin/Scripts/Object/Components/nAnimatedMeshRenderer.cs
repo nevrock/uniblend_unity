@@ -22,15 +22,23 @@ namespace Ngin {
         protected override void Launch() {
             nAnimator armature = FindArmature();
             List<string> bones = meshData.bones;
+            Debug.Log("Animated mesh has bones: " + bones.Count);
             Transform[] boneTransforms = new Transform[bones.Count];
+            Matrix4x4[] bindPoses = new Matrix4x4[bones.Count];
+
             for (int i = 0; i < bones.Count; i++) {
                 boneTransforms[i] = FindBone(bones[i], armature);
+                bindPoses[i] = boneTransforms[i].worldToLocalMatrix * transform.localToWorldMatrix;
             }
-            skinnedMeshRenderer.bones = boneTransforms;
 
             Mesh mesh = meshData.GetMesh();
-            skinnedMeshRenderer.sharedMesh = mesh;
+            mesh.bindposes = bindPoses;
             meshFilter.sharedMesh = mesh;
+
+            skinnedMeshRenderer.bones = boneTransforms;
+
+            mesh.RecalculateBounds();
+            skinnedMeshRenderer.localBounds = mesh.bounds;
 
             if (meshData.quality == "4Bones") {
                 skinnedMeshRenderer.quality = SkinQuality.Bone4;
@@ -47,6 +55,8 @@ namespace Ngin {
             skinnedMeshRenderer.sharedMaterials = materials;
 
             skinnedMeshRenderer.rootBone = armature.transform;
+
+            skinnedMeshRenderer.sharedMesh = mesh;
         }
 
         nAnimator FindArmature() {
@@ -66,7 +76,7 @@ namespace Ngin {
             }
             Transform bone = armature.FindBone(name);
             if (bone == null) {
-                Debug.LogError("Bone not found.");
+                Debug.LogError("Bone not found: " + name);
             }
             return bone;
         }

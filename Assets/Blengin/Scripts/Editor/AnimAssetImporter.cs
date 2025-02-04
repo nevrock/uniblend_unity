@@ -37,6 +37,9 @@ public class AnimAssetImporter : UnityEditor.AssetImporters.ScriptedImporter
 
                 if (properties == null) continue;
 
+                // Variables to store quaternion components
+                Dictionary<string, float> quaternionComponents = new Dictionary<string, float>();
+
                 foreach (var property in properties.Objects)
                 {
                     if (property.Value is Lexicon propertyLexicon)
@@ -51,18 +54,36 @@ public class AnimAssetImporter : UnityEditor.AssetImporters.ScriptedImporter
                             continue;
                         }
 
-                        // Use tuple as key for the curve dictionary
-                        var curveKey = (path, propertyName);
-
-                        // Retrieve or create the animation curve
-                        if (!curves.TryGetValue(curveKey, out AnimationCurve curve))
+                        // Store quaternion components
+                        if (propertyName.StartsWith("localRotation"))
                         {
-                            curve = new AnimationCurve();
-                            curves[curveKey] = curve;
-                        }
+                            quaternionComponents[propertyName] = value;
 
-                        // Add keyframe to the animation curve
-                        curve.AddKey(new Keyframe(time, value));
+                            // If we have all quaternion components, convert to Euler angles
+                            if (quaternionComponents.Count == 4)
+                            {
+                                Quaternion quaternion = new Quaternion(
+                                    quaternionComponents["localRotation.x"],
+                                    quaternionComponents["localRotation.y"],
+                                    quaternionComponents["localRotation.z"],
+                                    quaternionComponents["localRotation.w"]
+                                );
+
+                                Vector3 eulerAngles = quaternion.eulerAngles;
+
+                                // Add Euler angles to the curves
+                                AddKeyToCurve(curves, path, "localEulerAnglesRaw.x", time, eulerAngles.x);
+                                AddKeyToCurve(curves, path, "localEulerAnglesRaw.y", time, eulerAngles.y);
+                                AddKeyToCurve(curves, path, "localEulerAnglesRaw.z", time, eulerAngles.z);
+
+                                quaternionComponents.Clear();
+                            }
+                        }
+                        else
+                        {
+                            // Add keyframe to the animation curve for non-rotation properties
+                            AddKeyToCurve(curves, path, propertyName, time, value);
+                        }
                     }
                 }
             }
@@ -78,5 +99,19 @@ public class AnimAssetImporter : UnityEditor.AssetImporters.ScriptedImporter
         // Add the animation clip to the asset context
         ctx.AddObjectToAsset("animationClip", clip);
         ctx.SetMainObject(clip);
+    }
+
+    // Helper method to add keyframe to the curve
+    void AddKeyToCurve(Dictionary<(string path, string propertyName), AnimationCurve> curves, string path, string propertyName, float time, float value)
+    {
+        var curveKey = (path, propertyName);
+
+        if (!curves.TryGetValue(curveKey, out AnimationCurve curve))
+        {
+            curve = new AnimationCurve();
+            curves[curveKey] = curve;
+        }
+
+        curve.AddKey(new Keyframe(time, value));
     }
 }

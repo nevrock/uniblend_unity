@@ -1,5 +1,9 @@
 properties: 
     _MainTex: Face03
     _MainColor: [0.5, 0.5, 0.5]
+    _Emission: [0.0, 0.0, 0.0]
+    _Metallic: 0.0
+    _SmoothnessTex: SmoothnessTex
+    _Smoothness: 1.0
 shader: Pbr
 name: MetallicPalette

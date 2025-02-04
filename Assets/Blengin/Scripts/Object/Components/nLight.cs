@@ -21,9 +21,10 @@ namespace Ngin {
                 light.type = LightType.Point;
 
             light.shadows = LightShadows.Soft;
-            light.intensity = 1.0f;
+            light.intensity = lightData.intensity;
             light.bounceIntensity = 1.0f;
-            light.range = 10.0f;
+            light.range = lightData.range;
+            light.color = lightData.color;
         }
 
 

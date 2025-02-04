@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    renderPassEvent: 400
+    renderPassEvent: 500
     mMat: {fileID: 2100000, guid: ebb14c41255df0848b4b963dbf31770b, type: 2}
     textureId: _ScreenTexture
     Preview: 0

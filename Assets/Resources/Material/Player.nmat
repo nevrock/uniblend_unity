@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: PaletteMain
+    _MainColor: [1.0, 1.0, 1.0]
+shader: Pbr
+name: Player

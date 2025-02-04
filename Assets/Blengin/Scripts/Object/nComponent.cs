@@ -42,5 +42,27 @@ namespace Ngin {
 
             return val;
         }
+        protected Transform FindChild(string name, Transform parent = null) {
+            if (parent == null) {
+                parent = this.transform;
+            }
+            if (parent.name == name) {
+                return parent;
+            }
+            foreach (Transform child in parent) {
+                Transform result = FindChild(name, child);
+                if (result != null) {
+                    return result;
+                }
+            }
+            return null;
+        }
+        protected nObject FindChildObject(string name, nObject parent = null) {
+            nObject obj = this.Object as nObject;
+            if (obj == null) {
+                return null;
+            }
+            return obj.FindChild(name, parent);
+        }
     }
 }

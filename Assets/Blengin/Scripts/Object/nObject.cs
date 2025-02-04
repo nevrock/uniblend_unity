@@ -40,12 +40,12 @@ namespace Ngin {
         public void Build() {
             BuildGameObjects();
             SetupComponents();
+            _transformData.Link(_transform);
+            _transformData.Apply();
+
             foreach (var child in _children) {
                 child.Build();
             }
-            _transformData.Link(_transform);
-
-            _transformData.Apply();
         }
         public void EditorRefresh() {
             foreach (var component in _components) {
@@ -250,6 +250,23 @@ namespace Ngin {
             a.Link(this, vars);
 
             this._components.Add(a);
+        }
+        public nObject FindChild(string name, nObject parent = null) {
+            if (parent == null) {
+                parent = this;
+            }
+            foreach (nObject child in parent._children) {
+                if (child._name == name) {
+                    return child;
+                }
+            }
+            foreach (nObject child in parent._children) {
+                nObject result = FindChild(name, child);
+                if (result != null) {
+                    return result;
+                }
+            }
+            return null;
         }
 
         public static IObject Spawn(string name, 

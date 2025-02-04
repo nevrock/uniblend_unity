@@ -26,6 +26,7 @@ namespace Ngin {
             foreach (string animation in animations) {
                 Debug.Log("Animation/" + animation);
                 AnimationClip clip = Resources.Load<AnimationClip>("Animation/" + animation);
+                if (clip == null) continue;
                 clip.legacy = true;
                 clip.wrapMode = loop ? WrapMode.Loop : WrapMode.Once;
 
