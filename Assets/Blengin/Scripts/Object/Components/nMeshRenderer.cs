@@ -19,7 +19,7 @@ namespace Ngin {
 
         protected override void Launch() {
             Mesh mesh = meshData.GetMesh();
-            meshFilter.sharedMesh = mesh;
+            //meshFilter.sharedMesh = mesh;
 
             Material[] materials = new Material[meshData.materials.Count];
             for (int i = 0; i < meshData.materials.Count; i++) {

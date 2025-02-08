@@ -25,7 +25,7 @@ namespace Ngin {
             camera.nearClipPlane = nearClipPlane;
             camera.farClipPlane = farClipPlane;
 
-            Ngin.SetEnv<nCamera>($"Camera:{this.Object.GetName()}", this);
+            Ngin.SetEnv<nCamera>($"Camera:{this.gameObject.name}", this);
 
         }
 

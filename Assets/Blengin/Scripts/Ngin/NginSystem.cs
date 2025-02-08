@@ -3,9 +3,9 @@ namespace Ngin {
     public class NginSystem : MonoBehaviour {
 
         void Awake() {
-            _origin = nObject.Spawn(startObject);
+            //_origin = nObject.Spawn(startObject);
             Debug.Log("Origin: " + _origin);
-            _gui = nGuiObject.Spawn(guiObject);
+            //_gui = nGuiObject.Spawn(guiObject);
             Debug.Log("Gui: " + _gui);
         }
         void Start() {
@@ -17,7 +17,7 @@ namespace Ngin {
         public string startObject = "Start";
         public string guiObject = "Gui";
 
-        IObject _origin;
-        IObject _gui;
+        nObjectBuilder _origin;
+        nObjectBuilder _gui;
     }
 }

@@ -1,0 +1,57 @@
+name: Player
+children: 
+    Rig.Armature: 
+        name: Rig.Armature
+        children: 
+            Rig.Armature: 
+                name: Rig.Armature
+                components: 
+                    nAnimator: 
+                        type: nAnimator
+                        animations: [_base]
+                children: 
+                    Root: 
+                        name: Root
+                        transform: 
+                            position: [0.0, 0.0, 0.0]
+                            rotation: [-90.00000250447816, 0.0, 0.0]
+                            scale: [1.0, 1.0, 1.0]
+                        children: 
+                            Hips: 
+                                name: Hips
+                                transform: 
+                                    position: [0.0, 0.8999999761581421, 0.0]
+                                    rotation: [-90.00004348561319, 0.0, 0.0]
+                                    scale: [1.0, 1.0, 1.0]
+                                children: 
+                                    Spine.001: 
+                                        name: Spine.001
+                                        transform: 
+                                            position: [0.0, 0.9999995827674866, 0.0]
+                                            rotation: [-75.96376568461604, -1.3252513371227603e-05, -3.3131256965854058e-06]
+                                            scale: [1.0, 0.9999999403953552, 0.9999998807907104]
+                                        children: 
+                                            Spine.002: 
+                                                name: Spine.002
+                                                transform: 
+                                                    position: [0.0, 1.2000000476837158, 0.04999999701976776]
+                                                    rotation: [-93.57633053503186, -1.3633775264669993e-05, 0.0]
+                                                    scale: [1.0, 1.0, 0.9999998807907104]
+                                                children: 
+            PlayerBody: 
+                name: PlayerBody
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        FBXFile: Rig.Armature
+        FBX: true

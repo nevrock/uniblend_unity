@@ -12,7 +12,7 @@ namespace Ngin {
         }
         protected override void Launch() {
             Game.ListenToSceneSignal(new Task(() => {
-                nObject.Spawn(objectName);
+                //nObject.Spawn(objectName);
             }));
         }
     }

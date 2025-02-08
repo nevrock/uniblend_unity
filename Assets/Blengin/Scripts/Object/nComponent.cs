@@ -1,11 +1,9 @@
 using UnityEngine;
 namespace Ngin {
     public class nComponent : MonoBehaviour {
-        public void Link(IObject obj, Lexicon data) {
-            Object = obj;
+        public void Configure(Lexicon data) {
             StoreData(data);
         }
-        public IObject Object;
 
         void Awake() {
             AddClasses();
@@ -57,12 +55,11 @@ namespace Ngin {
             }
             return null;
         }
-        protected nObject FindChildObject(string name, nObject parent = null) {
-            nObject obj = this.Object as nObject;
-            if (obj == null) {
+        protected GameObject FindChildObject(string name, Transform parent = null) {
+            Transform t = FindChild(name, parent);
+            if (t == null)
                 return null;
-            }
-            return obj.FindChild(name, parent);
+            return t.gameObject;
         }
     }
 }

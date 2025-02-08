@@ -20,33 +20,33 @@ namespace Ngin {
         }
 
         protected override void Launch() {
-            nAnimator armature = FindArmature();
-            List<string> bones = meshData.bones;
-            Debug.Log("Animated mesh has bones: " + bones.Count);
-            Transform[] boneTransforms = new Transform[bones.Count];
-            Matrix4x4[] bindPoses = new Matrix4x4[bones.Count];
+            //nAnimator armature = FindArmature();
+            //List<string> bones = meshData.bones;
+            //Debug.Log("Animated mesh has bones: " + bones.Count);
+            //Transform[] boneTransforms = new Transform[bones.Count];
+            //Matrix4x4[] bindPoses = new Matrix4x4[bones.Count];
 
-            for (int i = 0; i < bones.Count; i++) {
-                boneTransforms[i] = FindBone(bones[i], armature);
-                bindPoses[i] = boneTransforms[i].worldToLocalMatrix * transform.localToWorldMatrix;
-            }
+            //for (int i = 0; i < bones.Count; i++) {
+            //    boneTransforms[i] = FindBone(bones[i], armature);
+            //    bindPoses[i] = boneTransforms[i].worldToLocalMatrix * transform.localToWorldMatrix;
+            //}
 
-            Mesh mesh = meshData.GetMesh();
-            mesh.bindposes = bindPoses;
-            meshFilter.sharedMesh = mesh;
+            //Mesh mesh = meshData.GetMesh();
+            //mesh.bindposes = bindPoses;
+            //meshFilter.sharedMesh = mesh;
 
-            skinnedMeshRenderer.bones = boneTransforms;
+            //skinnedMeshRenderer.bones = boneTransforms;
 
-            mesh.RecalculateBounds();
-            skinnedMeshRenderer.localBounds = mesh.bounds;
+            //mesh.RecalculateBounds();
+            //skinnedMeshRenderer.localBounds = mesh.bounds;
 
-            if (meshData.quality == "4Bones") {
-                skinnedMeshRenderer.quality = SkinQuality.Bone4;
-            } else if (meshData.quality == "2Bones") {
-                skinnedMeshRenderer.quality = SkinQuality.Bone2;
-            } else if (meshData.quality == "1Bone") {
-                skinnedMeshRenderer.quality = SkinQuality.Bone1;
-            }
+            //if (meshData.quality == "4Bones") {
+            //    skinnedMeshRenderer.quality = SkinQuality.Bone4;
+            //} else if (meshData.quality == "2Bones") {
+            //    skinnedMeshRenderer.quality = SkinQuality.Bone2;
+            //} else if (meshData.quality == "1Bone") {
+            //    skinnedMeshRenderer.quality = SkinQuality.Bone1;
+            //}
 
             Material[] materials = new Material[meshData.materials.Count];
             for (int i = 0; i < meshData.materials.Count; i++) {
@@ -54,9 +54,9 @@ namespace Ngin {
             }
             skinnedMeshRenderer.sharedMaterials = materials;
 
-            skinnedMeshRenderer.rootBone = armature.transform;
+            //skinnedMeshRenderer.rootBone = armature.transform;
 
-            skinnedMeshRenderer.sharedMesh = mesh;
+            //skinnedMeshRenderer.sharedMesh = mesh;
         }
 
         nAnimator FindArmature() {

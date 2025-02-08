@@ -7,7 +7,7 @@ public class FbxPostProcessor : AssetPostprocessor {
         if (assetPath.EndsWith(".fbx") && assetPath.Contains("/Resources/")) {
             ModelImporter modelImporter = (ModelImporter)assetImporter;
             // Set import settings here
-            modelImporter.globalScale = 1.0f;
+            modelImporter.globalScale = 100.0f;
             modelImporter.importBlendShapes = true;
             modelImporter.importVisibility = false;
             modelImporter.importCameras = false;
@@ -15,11 +15,14 @@ public class FbxPostProcessor : AssetPostprocessor {
             modelImporter.meshCompression = ModelImporterMeshCompression.Off;
             modelImporter.isReadable = true;
             modelImporter.optimizeMesh = true;
+            modelImporter.bakeAxisConversion = true;
 
             if (assetPath.Contains("Rig")) {
-                modelImporter.animationType = ModelImporterAnimationType.Generic;
+                modelImporter.animationType = ModelImporterAnimationType.Legacy;
                 modelImporter.importAnimation = true;
                 modelImporter.animationCompression = ModelImporterAnimationCompression.Optimal;
+                modelImporter.skinWeights = ModelImporterSkinWeights.Custom;
+                modelImporter.maxBonesPerVertex = 6;
             }
 
             Debug.Log("FBX model preprocessed: " + assetPath);

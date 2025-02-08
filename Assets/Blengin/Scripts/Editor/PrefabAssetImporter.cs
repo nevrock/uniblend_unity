@@ -11,10 +11,9 @@ public class PrefabAssetImporter : ScriptedImporter {
         // Read the file content as a Lexicon
         Lexicon lexicon = Lexicon.FromLexiconFilePath(ctx.assetPath);
         string name = Path.GetFileNameWithoutExtension(ctx.assetPath);
-        nObject obj = new nObject(name, lexicon);
+        nObjectBuilder obj = new nObjectBuilder(name, lexicon);
         obj.Setup();
         obj.Build();
-        obj.EditorRefresh();
 
         List<GameObject> allObjects = obj.GetAllGameObjects();
         foreach (var go in allObjects) {

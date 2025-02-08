@@ -1,5 +1,6 @@
 namespace Ngin {
     using UnityEngine;
+    using System.Collections.Generic;
     [System.Serializable]
     public class TransformData : nData {
         public TransformData() {
@@ -24,6 +25,12 @@ namespace Ngin {
             _scale = data._scale;
         }
         public override void LoadFromLexicon(Lexicon lexicon) {
+            Debug.Log("Loading TransformData:");
+            Debug.Log("Position: " + lexicon.GetVector3("position", Vector3.zero));
+            var rotationList = lexicon.Get<List<float>>("rotation", new List<float>());
+            string rotationString = string.Join(", ", rotationList);
+            Debug.Log("Rotation: " + lexicon.GetQuaternion("rotation", Quaternion.identity).eulerAngles + " vs: " + rotationString);
+            Debug.Log("Scale: " + lexicon.GetVector3("scale", Vector3.one));
             _position = lexicon.GetVector3("position", Vector3.zero);
             _rotation = lexicon.GetQuaternion("rotation", Quaternion.identity);
             _scale = lexicon.GetVector3("scale", Vector3.one);
