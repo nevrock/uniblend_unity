@@ -1,6 +1,1 @@
-PaletteMain: C:\Users\trave\Documents\test\Textures\PaletteMain.png
-Face03: G:\My Drive\_shared\blender\assets\textures\anime\faces\face_03.png
-SmoothnessTex: C:\Users\trave\Documents\test\SmoothnessTex.png
-WaterSurfaceNormalAtlas: C:\Users\trave\Documents\test\Textures\WaterSurfaceNormalAtlas.png
-WaterSurfaceNormalSingle: C:\Users\trave\Documents\test\Textures\WaterSurfaceNormalSingle.png
-CutoutTex: C:\Users\trave\Documents\test\CutoutTex.png
+PaletteMain.001: G:\My Drive\common\Blender\Assets\Games\OutlandiaAlienPlanet\..\..\..\..\..\_win\blender\games\unkown_echoes_of_wisdom\Textures\PaletteMain.png

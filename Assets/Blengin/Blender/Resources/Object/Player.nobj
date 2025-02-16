@@ -1,45 +1,326 @@
 name: Player
 children: 
-    Rig.Armature: 
-        name: Rig.Armature
+    Armature: 
+        name: Armature
         children: 
-            Rig.Armature: 
-                name: Rig.Armature
-                components: 
-                    nAnimator: 
-                        type: nAnimator
-                        animations: [_base]
+            Armature: 
                 children: 
                     Root: 
                         name: Root
-                        transform: 
-                            position: [0.0, 0.0, 0.0]
-                            rotation: [-90.00000250447816, 0.0, 0.0]
-                            scale: [1.0, 1.0, 1.0]
                         children: 
-                            Hips: 
-                                name: Hips
-                                transform: 
-                                    position: [0.0, 0.8999999761581421, 0.0]
-                                    rotation: [-90.00004348561319, 0.0, 0.0]
-                                    scale: [1.0, 1.0, 1.0]
+                            Pelvis: 
+                                name: Pelvis
                                 children: 
-                                    Spine.001: 
-                                        name: Spine.001
-                                        transform: 
-                                            position: [0.0, 0.9999995827674866, 0.0]
-                                            rotation: [-75.96376568461604, -1.3252513371227603e-05, -3.3131256965854058e-06]
-                                            scale: [1.0, 0.9999999403953552, 0.9999998807907104]
+                                    Thigh.L: 
+                                        name: Thigh.L
                                         children: 
-                                            Spine.002: 
-                                                name: Spine.002
-                                                transform: 
-                                                    position: [0.0, 1.2000000476837158, 0.04999999701976776]
-                                                    rotation: [-93.57633053503186, -1.3633775264669993e-05, 0.0]
-                                                    scale: [1.0, 1.0, 0.9999998807907104]
+                                            Calf.L: 
+                                                name: Calf.L
                                                 children: 
-            PlayerBody: 
-                name: PlayerBody
+                                                    Foot.L: 
+                                                        name: Foot.L
+                                                        children: 
+                                    Spine01: 
+                                        name: Spine01
+                                        children: 
+                                            Spine02: 
+                                                name: Spine02
+                                                children: 
+                                                    Spine03: 
+                                                        name: Spine03
+                                                        children: 
+                                                            Neck01: 
+                                                                name: Neck01
+                                                                children: 
+                                                                    Head: 
+                                                                        name: Head
+                                                                        children: 
+                                                            Clavicle.L: 
+                                                                name: Clavicle.L
+                                                                children: 
+                                                                    Upperarm.L: 
+                                                                        name: Upperarm.L
+                                                                        children: 
+                                                                            Lowerarm.L: 
+                                                                                name: Lowerarm.L
+                                                                                children: 
+                                                                                    Hand.L: 
+                                                                                        name: Hand.L
+                                                                                        children: 
+                                                                                            Index01.L: 
+                                                                                                name: Index01.L
+                                                                                                children: 
+                                                                                                    Index02.L: 
+                                                                                                        name: Index02.L
+                                                                                                        children: 
+                                                                                            Thumb01.L: 
+                                                                                                name: Thumb01.L
+                                                                                                children: 
+                                                                                                    Thumb02.L: 
+                                                                                                        name: Thumb02.L
+                                                                                                        children: 
+                                                                                            Weapon.L: 
+                                                                                                name: Weapon.L
+                                                                                                children: 
+                                                                    ShoulderPad.L: 
+                                                                        name: ShoulderPad.L
+                                                                        children: 
+                                                            CloakBone01: 
+                                                                name: CloakBone01
+                                                                children: 
+                                                                    CloakBone02: 
+                                                                        name: CloakBone02
+                                                                        children: 
+                                                            BackpackBone: 
+                                                                name: BackpackBone
+                                                                children: 
+                                                            Clavicle.R: 
+                                                                name: Clavicle.R
+                                                                children: 
+                                                                    Upperarm.R: 
+                                                                        name: Upperarm.R
+                                                                        children: 
+                                                                            Lowerarm.R: 
+                                                                                name: Lowerarm.R
+                                                                                children: 
+                                                                                    Hand.R: 
+                                                                                        name: Hand.R
+                                                                                        children: 
+                                                                                            Index01.R: 
+                                                                                                name: Index01.R
+                                                                                                children: 
+                                                                                                    Index02.R: 
+                                                                                                        name: Index02.R
+                                                                                                        children: 
+                                                                                            Thumb01.R: 
+                                                                                                name: Thumb01.R
+                                                                                                children: 
+                                                                                                    Thumb02.R: 
+                                                                                                        name: Thumb02.R
+                                                                                                        children: 
+                                                                                            Weapon.R: 
+                                                                                                name: Weapon.R
+                                                                                                children: 
+                                                                    ShoulderPad.R: 
+                                                                        name: ShoulderPad.R
+                                                                        children: 
+                                            HeadPoleIK: 
+                                                name: HeadPoleIK
+                                                children: 
+                                    Thigh.R: 
+                                        name: Thigh.R
+                                        children: 
+                                            Calf.R: 
+                                                name: Calf.R
+                                                children: 
+                                                    Foot.R: 
+                                                        name: Foot.R
+                                                        children: 
+                    HandPoleIK.L: 
+                        name: HandPoleIK.L
+                        children: 
+                    HandPoleIK.R: 
+                        name: HandPoleIK.R
+                        children: 
+                    HandIK.L: 
+                        name: HandIK.L
+                        children: 
+                    HandIK.R: 
+                        name: HandIK.R
+                        children: 
+                    HeadIK: 
+                        name: HeadIK
+                        children: 
+                    FootIK.L: 
+                        name: FootIK.L
+                        children: 
+                    FootPoleIK.L: 
+                        name: FootPoleIK.L
+                        children: 
+                    FootIK.R: 
+                        name: FootIK.R
+                        children: 
+                    FootPoleIK.R: 
+                        name: FootPoleIK.R
+                        children: 
+            Armor.001: 
+                name: Armor.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Belt.001: 
+                name: Belt.001
+                children: 
+                transform: 
+                    position: [0.0, 0.3814980387687683, 0.17999999225139618]
+                    rotation: [0.0, -5.530388376146869, 0.0]
+                    scale: [0.9759467840194702, 1.0, 0.9772419929504395]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Belt.002: 
+                name: Belt.002
+                children: 
+                transform: 
+                    position: [0.0, 0.3814980387687683, 0.17999999225139618]
+                    rotation: [0.0, -5.530388376146869, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            BeltBody: 
+                name: BeltBody
+                children: 
+                transform: 
+                    position: [0.01927151530981064, 0.5715881586074829, 0.006154095288366079]
+                    rotation: [3.0233003229029753e-06, 1.8904899480039746e-06, -34.99998959031512]
+                    scale: [1.2000000476837158, 1.0, 0.8641629815101624]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Body: 
+                name: Body
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Cloak: 
+                name: Cloak
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Hair.001: 
+                name: Hair.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Hands.001: 
+                name: Hands.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Head.001: 
+                name: Head.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Helmet.001: 
+                name: Helmet.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Legs.003: 
+                name: Legs.003
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Legs.004: 
+                name: Legs.004
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Mask.001: 
+                name: Mask.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Satchel: 
+                name: Satchel
+                children: 
+                transform: 
+                    position: [0.24398523569107056, 0.4398215413093567, 0.007653497625142336]
+                    rotation: [-89.999995674289, 0.0, 40.276221931690756]
+                    scale: [0.040564171969890594, 0.0711519867181778, 0.04056417569518089]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            ShirtLong.001: 
+                name: ShirtLong.001
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            ShirtLong.002: 
+                name: ShirtLong.002
+                children: 
+                transform: 
+                    position: [0.0, 0.0, 0.0]
+                    rotation: [0.0, 0.0, 0.0]
+                    scale: [1.0, 1.0, 1.0]
+                components: 
+                    mesh: 
+                        type: nAnimatedMeshRenderer
+                        materials: [Player]
+            Watch: 
+                name: Watch
                 children: 
                 transform: 
                     position: [0.0, 0.0, 0.0]
@@ -53,5 +334,9 @@ children:
             position: [0.0, 0.0, 0.0]
             rotation: [0.0, 0.0, 0.0]
             scale: [1.0, 1.0, 1.0]
-        FBXFile: Rig.Armature
+        components: 
+            nAnimator: 
+                type: nAnimator
+                animations: []
+        FBXFile: Armature
         FBX: true

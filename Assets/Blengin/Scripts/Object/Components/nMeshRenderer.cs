@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Ngin {
     public class nMeshRenderer : nComponent {
@@ -6,30 +7,22 @@ namespace Ngin {
         public MeshRenderer meshRenderer;
         [ReadOnly]
         public MeshFilter meshFilter;
-        public MeshData meshData;
+        public List<string> materials;
 
         protected override void AddClasses() {
             meshRenderer = ComponentCheck<MeshRenderer>(true);
             meshFilter = ComponentCheck<MeshFilter>(true);
         }
         protected override void StoreData(Lexicon data) {
-            meshData = new MeshData();
-            meshData.LoadFromLexicon(data);
+            materials = data.Get<List<string>>("materials", new List<string>());
         }
 
         protected override void Launch() {
-            Mesh mesh = meshData.GetMesh();
-            //meshFilter.sharedMesh = mesh;
-
-            Material[] materials = new Material[meshData.materials.Count];
-            for (int i = 0; i < meshData.materials.Count; i++) {
-                materials[i] = meshData.GetMaterial(i);
+            Material[] mats = new Material[materials.Count];
+            for (int i = 0; i < materials.Count; i++) {
+                mats[i] = Assets.GetMaterial(materials[i]);
             }
-            meshRenderer.sharedMaterials = materials;
+            meshRenderer.sharedMaterials = mats;
         }
-
-
-        // data
-        
     }
 }

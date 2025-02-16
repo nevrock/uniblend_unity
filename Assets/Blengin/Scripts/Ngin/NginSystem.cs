@@ -3,7 +3,7 @@ namespace Ngin {
     public class NginSystem : MonoBehaviour {
 
         void Awake() {
-            //_origin = nObject.Spawn(startObject);
+            _origin = nPrefab.Spawn(startObject);
             Debug.Log("Origin: " + _origin);
             //_gui = nGuiObject.Spawn(guiObject);
             Debug.Log("Gui: " + _gui);
@@ -17,7 +17,7 @@ namespace Ngin {
         public string startObject = "Start";
         public string guiObject = "Gui";
 
-        nObjectBuilder _origin;
-        nObjectBuilder _gui;
+        GameObject _origin;
+        GameObject _gui;
     }
 }

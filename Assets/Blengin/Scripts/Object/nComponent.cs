@@ -1,8 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 namespace Ngin {
     public class nComponent : MonoBehaviour {
         public void Configure(Lexicon data) {
             StoreData(data);
+            AddClasses();
+            Setup();
         }
 
         void Awake() {
@@ -60,6 +63,22 @@ namespace Ngin {
             if (t == null)
                 return null;
             return t.gameObject;
+        }
+        protected List<T> GetComponentsInChildren<T>(List<T> components = null, GameObject obj = null) where T : Component {
+            if (obj == null) {
+                obj = this.gameObject;
+            }
+            if (components == null) {
+                components = new List<T>();
+            }
+            T component = obj.GetComponent<T>();
+            if (component != null) {
+                components.Add(component);
+            }
+            foreach (Transform child in obj.transform) {
+                GetComponentsInChildren<T>(components, child.gameObject);
+            }
+            return components;
         }
     }
 }

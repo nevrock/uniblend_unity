@@ -57,7 +57,7 @@ MonoBehaviour:
     Area: 1.91
     Spread: 1
     Samples: 32
-    Radius: 0.659
+    Radius: 0.598
     UseDistortion: 1
     CubicDistortion: 5
     DistortionScale: 1

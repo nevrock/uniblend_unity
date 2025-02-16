@@ -113,11 +113,13 @@ namespace Ngin {
                     _BuildEmpty();
             }
 
-            TransformData data = new TransformData();
-            Debug.Log("Building TransformData object: " + _name);
-            data.LoadFromLexicon(_data.Get<Lexicon>("transform", new Lexicon()));
-            data.Link(_gameObject.transform);
-            data.Apply();
+            if (_data.Has("transform")) {
+                TransformData data = new TransformData();
+                Debug.Log("Building TransformData object: " + _name);
+                data.LoadFromLexicon(_data.Get<Lexicon>("transform", new Lexicon()));
+                data.Link(_gameObject.transform);
+                data.Apply();
+            }
         }
         void _BuildFBX() {
             Debug.Log("Building fbx: " + _name);

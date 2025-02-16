@@ -1,69 +1,5 @@
 name: Start
 children: 
-    Plane: 
-        name: Plane
-        children: 
-        transform: 
-            position: [0.0, 0.0, 0.0]
-            rotation: [0.0, 0.0, 0.0]
-            scale: [1.0, 1.0, 1.0]
-        components: 
-            mesh: 
-                type: nMeshRenderer
-        FBXFile: Plane
-        FBX: true
-    Rig.Test: 
-        name: Rig.Test
-        children: 
-            Rig.Test: 
-                name: Rig.Test
-                components: 
-                    nAnimator: 
-                        type: nAnimator
-                        animations: [ActionBase]
-                children: 
-                    Bone: 
-                        name: Bone
-                        transform: 
-                            position: [0.0, 0.0, 0.0]
-                            rotation: [-90.00000250447816, 0.0, 0.0]
-                            scale: [1.0, 1.0, 1.0]
-                        children: 
-                            Bone.001: 
-                                name: Bone.001
-                                transform: 
-                                    position: [0.0, 1.0, 0.0]
-                                    rotation: [-90.00000250447816, 6.830189170012751e-06, 0.0]
-                                    scale: [1.0, 1.0, 1.0]
-                                children: 
-            CubeAnimated: 
-                name: CubeAnimated
-                children: 
-                transform: 
-                    position: [0.0, 0.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nAnimatedMeshRenderer
-                        materials: [MetallicPalette]
-            CubeAnimated.002: 
-                name: CubeAnimated.002
-                children: 
-                transform: 
-                    position: [0.0, 0.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nAnimatedMeshRenderer
-                        materials: [MetallicPaletteTransparent]
-        transform: 
-            position: [0.0, 0.0, 0.0]
-            rotation: [0.0, 0.0, 0.0]
-            scale: [1.0, 1.0, 1.0]
-        FBXFile: Rig.Test
-        FBX: true
     Sun: 
         name: Sun
         children: 
@@ -76,142 +12,42 @@ children:
                 type: nLight
                 color: [1.0, 1.0, 1.0]
                 intensity: 1.0
-    Point: 
-        name: Point
+    Probe: 
+        components: 
+            ReflectionProbe: 
+                type: nReflectionProbe
+                timeSlicingMode: IndividualFaces
+                refreshMode: EveryFrame
+                boxProjection: true
+        name: Probe
         children: 
         transform: 
-            position: [0.0, 5.0, 0.0]
-            rotation: [90.0, 0.0, 0.0]
+            position: [0.0, 3.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+    Plane: 
+        name: Plane
+        children: 
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
             scale: [1.0, 1.0, 1.0]
         components: 
-            light: 
-                type: nLight
-                isSun: false
-                color: [1.0, 1.0, 1.0]
-                intensity: 5.0
-                range: 10.0
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Plane
+        FBX: true
     CameraMain: 
         name: CameraMain
         children: 
         transform: 
-            position: [-0.4569297432899475, 8.332971572875977, -14.107525825500488]
-            rotation: [21.199996264081804, 1.1999991369307137, -1.2893763087598488e-06]
+            position: [-20.0, 17.5, -20.0]
+            rotation: [29.999998330347886, 45.00000125223908, -1.2893764105375985e-06]
             scale: [1.0, 1.0, 1.0]
         components: 
             camera: 
                 type: nCamera
                 isOrthographic: false
-                focalLength: 49.999935150146484
+                focalLength: 60.0
                 near: 0.10000000149011612
                 far: 1000.0
-    Objects: 
-        name: Objects
-        children: 
-            Cube: 
-                name: Cube
-                children: 
-                transform: 
-                    position: [4.0, 3.0, 6.0]
-                    rotation: [0.0, -7.000002186931254, 37.000002167983666]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Cube
-                FBX: true
-            Cube.001: 
-                name: Cube.001
-                children: 
-                transform: 
-                    position: [3.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [WaterOcean]
-                FBXFile: Cube.001
-                FBX: true
-            Sphere: 
-                name: Sphere
-                children: 
-                transform: 
-                    position: [9.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Sphere
-                FBX: true
-            Sphere.001: 
-                name: Sphere.001
-                children: 
-                transform: 
-                    position: [6.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Sphere.001
-                FBX: true
-            Sphere.003: 
-                name: Sphere.003
-                children: 
-                transform: 
-                    position: [-3.0, 6.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPaletteCutout]
-                FBXFile: Sphere.003
-                FBX: true
-            Sphere.004: 
-                name: Sphere.004
-                children: 
-                transform: 
-                    position: [-3.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Sphere.004
-                FBX: true
-            Sphere.005: 
-                name: Sphere.005
-                children: 
-                transform: 
-                    position: [-6.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Sphere.005
-                FBX: true
-            Sphere.006: 
-                name: Sphere.006
-                children: 
-                transform: 
-                    position: [-9.0, 3.0, 0.0]
-                    rotation: [0.0, 0.0, 0.0]
-                    scale: [1.0, 1.0, 1.0]
-                components: 
-                    mesh: 
-                        type: nMeshRenderer
-                        materials: [MetallicPalette]
-                FBXFile: Sphere.006
-                FBX: true
-        transform: 
-            position: [0.0, 0.0, 0.0]
-            rotation: [0.0, 0.0, 0.0]
-            scale: [1.0, 1.0, 1.0]
