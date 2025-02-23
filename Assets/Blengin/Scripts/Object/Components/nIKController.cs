@@ -16,8 +16,17 @@ namespace Ngin {
             foreach (var ik in iks) {
                 ik.Link(
                     controller: this,
-                    effectorTarget: this.FindChildObject(ik.TargetName),
-                    effectorPole: this.FindChildObject(ik.PoleName)
+                    effectorTarget: this.FindChildObject(ik.TargetName).transform,
+                    effectorPole: this.FindChildObject(ik.PoleName).transform
+                );
+            }
+
+            List<nIKJobs> ikJobs = this.GetComponentsInChildren<nIKJobs>();
+            foreach (var ik in ikJobs) {
+                ik.Link(
+                    controller: this,
+                    effectorTarget: this.FindChildObject(ik.TargetName).transform,
+                    effectorPole: this.FindChildObject(ik.PoleName).transform
                 );
             }
         }

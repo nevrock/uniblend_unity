@@ -35,6 +35,7 @@ children:
         components: 
             mesh: 
                 type: nMeshRenderer
+                materials: [Terrain]
         FBXFile: Plane
         FBX: true
     CameraMain: 

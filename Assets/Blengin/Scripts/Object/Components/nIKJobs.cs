@@ -1,8 +1,12 @@
 using UnityEngine;
+using Unity.Jobs;
+using Unity.Collections;
+using Unity.Burst;
+using Unity.Mathematics;
 
 namespace Ngin
 {
-    public class nIK : nComponent
+    public class nIKJobs : nComponent
     {
         Transform _target;
         Transform _pole;
@@ -18,7 +22,7 @@ namespace Ngin
         public bool _copyRotationFromTarget = false;
         public float _copyRotationStrength = 1f;
 
-        protected float[] _bonesLengths; //_target to Origin
+        protected float[] _bonesLengths;
         protected float _completeLength;
         protected Transform[] _bones;
         protected Vector3[] _positions;
@@ -41,6 +45,7 @@ namespace Ngin
             _copyRotationStrength = data.Get<float>("copyRotationStrength", 1f);
         }
         protected override void Setup() {
+            // No setup required for now
         }
 
         public void Link(nIKController controller, 
@@ -55,16 +60,15 @@ namespace Ngin
 
             Init();
         }
+
         void Init()
         {
-            //initial array
             _bones = new Transform[_chainLength + 1];
             _positions = new Vector3[_chainLength + 1];
             _bonesLengths = new float[_chainLength];
             _startDirections = new Vector3[_chainLength + 1];
             _startRotations = new Quaternion[_chainLength + 1];
 
-            //find root
             _root = transform;
             for (var i = 0; i <= _chainLength; i++)
             {
@@ -73,7 +77,6 @@ namespace Ngin
                 _root = _root.parent;
             }
 
-            //init target
             if (_target == null)
             {
                 _target = new GameObject(gameObject.name + " _target").transform;
@@ -81,8 +84,6 @@ namespace Ngin
             }
             _startRotationTarget = GetRotationRootSpace(_target);
 
-
-            //init data
             var current = transform;
             _completeLength = 0;
             for (var i = _bones.Length - 1; i >= 0; i--)
@@ -92,12 +93,10 @@ namespace Ngin
 
                 if (i == _bones.Length - 1)
                 {
-                    //leaf
                     _startDirections[i] = GetPositionRootSpace(_target) - GetPositionRootSpace(current);
                 }
                 else
                 {
-                    //mid bone
                     _startDirections[i] = GetPositionRootSpace(_bones[i + 1]) - GetPositionRootSpace(current);
                     _bonesLengths[i] = _startDirections[i].magnitude;
                     _completeLength += _bonesLengths[i];
@@ -107,12 +106,7 @@ namespace Ngin
             }
         }
 
-        // Update is called once per frame
         protected override void TickLate()
-        {
-            ResolveIK();
-        }
-        private void ResolveIK()
         {
             if (_target == null)
                 return;
@@ -120,88 +114,66 @@ namespace Ngin
             if (_bonesLengths.Length != _chainLength)
                 Init();
 
-            //Fabric
-
-            //  root
-            //  (bone0) (bonelen 0) (bone1) (bonelen 1) (bone2)...
-            //   x--------------------x--------------------x---...
-
-            //get position
             for (int i = 0; i < _bones.Length; i++)
                 _positions[i] = GetPositionRootSpace(_bones[i]);
 
-            var targetPosition = GetPositionRootSpace(_target);
-            var targetRotation = GetRotationRootSpace(_target);
+            NativeArray<float3> positions = new NativeArray<float3>(_positions.Length, Allocator.TempJob);
+            NativeArray<float> bonesLengths = new NativeArray<float>(_bonesLengths.Length, Allocator.TempJob);
+            NativeArray<float3> startDirections = new NativeArray<float3>(_startDirections.Length, Allocator.TempJob);
 
-            //1st is possible to reach?
-            if ((targetPosition - GetPositionRootSpace(_bones[0])).sqrMagnitude >= _completeLength * _completeLength)
+            for (int i = 0; i < _positions.Length; i++)
+                positions[i] = _positions[i];
+
+            for (int i = 0; i < _bonesLengths.Length; i++)
+                bonesLengths[i] = _bonesLengths[i];
+
+            for (int i = 0; i < _startDirections.Length; i++)
+                startDirections[i] = _startDirections[i];
+
+            IKJob ikJob = new IKJob
             {
-                //just strech it
-                var direction = (targetPosition - _positions[0]).normalized;
-                //set everything after root
-                for (int i = 1; i < _positions.Length; i++)
-                    _positions[i] = _positions[i - 1] + direction * _bonesLengths[i - 1];
-            }
-            else
-            {
-                for (int i = 0; i < _positions.Length - 1; i++)
-                    _positions[i + 1] = Vector3.Lerp(_positions[i + 1], _positions[i] + _startDirections[i], _snapBackStrength);
+                positions = positions,
+                bonesLengths = bonesLengths,
+                startDirections = startDirections,
+                targetPosition = GetPositionRootSpace(_target),
+                polePosition = _pole != null ? GetPositionRootSpace(_pole) : float3.zero,
+                iterations = _iterations,
+                delta = _delta,
+                snapBackStrength = _snapBackStrength,
+                hasPole = _pole != null
+            };
 
-                for (int iteration = 0; iteration < _iterations; iteration++)
-                {
-                    //https://www.youtube.com/watch?v=UNoX65PRehA
-                    //back
-                    for (int i = _positions.Length - 1; i > 0; i--)
-                    {
-                        if (i == _positions.Length - 1)
-                            _positions[i] = targetPosition; //set it to target
-                        else
-                            _positions[i] = _positions[i + 1] + (_positions[i] - _positions[i + 1]).normalized * _bonesLengths[i]; //set in line on distance
-                    }
+            JobHandle jobHandle = ikJob.Schedule();
+            jobHandle.Complete();
 
-                    //forward
-                    for (int i = 1; i < _positions.Length; i++)
-                        _positions[i] = _positions[i - 1] + (_positions[i] - _positions[i - 1]).normalized * _bonesLengths[i - 1];
+            for (int i = 0; i < _positions.Length; i++)
+                _positions[i] = positions[i];
 
-                    //close enough?
-                    if ((_positions[_positions.Length - 1] - targetPosition).sqrMagnitude < _delta * _delta)
-                        break;
-                }
-            }
+            positions.Dispose();
+            bonesLengths.Dispose();
+            startDirections.Dispose();
 
-            //move towards pole
-            if (_pole != null)
-            {
-                var polePosition = GetPositionRootSpace(_pole);
-                for (int i = 1; i < _positions.Length - 1; i++)
-                {
-                    var plane = new Plane(_positions[i + 1] - _positions[i - 1], _positions[i - 1]);
-                    var projectedPole = plane.ClosestPointOnPlane(polePosition);
-                    var projectedBone = plane.ClosestPointOnPlane(_positions[i]);
-                    var angle = Vector3.SignedAngle(projectedBone - _positions[i - 1], projectedPole - _positions[i - 1], plane.normal);
-                    _positions[i] = Quaternion.AngleAxis(angle, plane.normal) * (_positions[i] - _positions[i - 1]) + _positions[i - 1];
-                }
-            }
+            ApplyPositions();
+        }
 
-            //set position & rotation
+        private void ApplyPositions()
+        {
             for (int i = 0; i < _positions.Length; i++)
             {
                 if (i == _positions.Length - 2 && _copyRotationFromTarget)
                 {
                     SetRotationRootSpace(_bones[i], Quaternion.FromToRotation(_startDirections[i], _positions[i + 1] - _positions[i]) * Quaternion.Inverse(_startRotations[i]));
-
                     _bones[i].rotation = Quaternion.Lerp(_bones[i].rotation, _target.rotation, _copyRotationStrength);
                 }
                 else if (i == _positions.Length - 1)
                 {
                     if (_copyRotationFromTarget)
                     {
-                        //_bones[i].rotation = _target.rotation;
                         _bones[i].localRotation = Quaternion.identity;
                     }
                     else
                     {
-                        SetRotationRootSpace(_bones[i], Quaternion.Inverse(targetRotation) * _startRotationTarget * Quaternion.Inverse(_startRotations[i]));
+                        SetRotationRootSpace(_bones[i], Quaternion.Inverse(GetRotationRootSpace(_target)) * _startRotationTarget * Quaternion.Inverse(_startRotations[i]));
                     }
                 }
                 else
@@ -211,6 +183,78 @@ namespace Ngin
                 SetPositionRootSpace(_bones[i], _positions[i]);
             }
         }
+
+        [BurstCompile]
+        struct IKJob : IJob
+        {
+            public NativeArray<float3> positions;
+            public NativeArray<float> bonesLengths;
+            public NativeArray<float3> startDirections;
+            public float3 targetPosition;
+            public float3 polePosition;
+            public int iterations;
+            public float delta;
+            public float snapBackStrength;
+            public bool hasPole;
+
+            public void Execute()
+            {
+                NativeArray<float3> pos = new NativeArray<float3>(positions.Length, Allocator.Temp);
+                for (int i = 0; i < positions.Length; i++)
+                    pos[i] = positions[i];
+
+                float totalLength = 0;
+                for (int i = 0; i < bonesLengths.Length; i++)
+                    totalLength += bonesLengths[i];
+
+                if (math.lengthsq(targetPosition - pos[0]) >= math.pow(totalLength, 2))
+                {
+                    float3 direction = math.normalize(targetPosition - pos[0]);
+                    for (int i = 1; i < pos.Length; i++)
+                        pos[i] = pos[i - 1] + direction * bonesLengths[i - 1];
+                }
+                else
+                {
+                    for (int i = 0; i < pos.Length - 1; i++)
+                        pos[i + 1] = math.lerp(pos[i + 1], pos[i] + startDirections[i], snapBackStrength);
+
+                    for (int iteration = 0; iteration < iterations; iteration++)
+                    {
+                        for (int i = pos.Length - 1; i > 0; i--)
+                        {
+                            if (i == pos.Length - 1)
+                                pos[i] = targetPosition;
+                            else
+                                pos[i] = pos[i + 1] + math.normalize(pos[i] - pos[i + 1]) * bonesLengths[i];
+                        }
+
+                        for (int i = 1; i < pos.Length; i++)
+                            pos[i] = pos[i - 1] + math.normalize(pos[i] - pos[i - 1]) * bonesLengths[i - 1];
+
+                        if (math.lengthsq(pos[pos.Length - 1] - targetPosition) < delta * delta)
+                            break;
+                    }
+                }
+
+                if (hasPole)
+                {
+                    for (int i = 1; i < pos.Length - 1; i++)
+                    {
+                        float3 planeNormal = math.cross(pos[i + 1] - pos[i - 1], pos[i] - pos[i - 1]);
+                        float3 projectedPole = polePosition - math.dot(polePosition - pos[i - 1], planeNormal) * planeNormal;
+                        float3 projectedBone = pos[i] - math.dot(pos[i] - pos[i - 1], planeNormal) * planeNormal;
+                        float angle = math.degrees(math.acos(math.dot(math.normalize(projectedBone - pos[i - 1]), math.normalize(projectedPole - pos[i - 1]))));
+                        pos[i] = math.mul(quaternion.AxisAngle(planeNormal, angle), pos[i] - pos[i - 1]) + pos[i - 1];
+                    }
+                }
+
+                for (int i = 0; i < positions.Length; i++)
+                    positions[i] = pos[i];
+
+                pos.Dispose();
+            }
+        }
+
         private Vector3 GetPositionRootSpace(Transform current)
         {
             if (_root == null)
@@ -227,7 +271,6 @@ namespace Ngin
         }
         private Quaternion GetRotationRootSpace(Transform current)
         {
-            //inverse(after) * before => rot: before -> after
             if (_root == null)
                 return current.rotation;
             else
@@ -240,6 +283,5 @@ namespace Ngin
             else
                 current.rotation = _root.rotation * rotation;
         }
-
     }
 }

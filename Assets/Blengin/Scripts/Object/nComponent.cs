@@ -18,6 +18,9 @@ namespace Ngin {
         void Update() {
             Tick();
         }
+        void LateUpdate() {
+            TickLate();
+        }
         void FixedUpdate() {
             TickPhysics();
         }
@@ -33,6 +36,7 @@ namespace Ngin {
         protected virtual void Setup() {}
         protected virtual void Launch() {}
         protected virtual void Tick() {}
+        protected virtual void TickLate() {}
         protected virtual void TickPhysics() {}
 
         public T ComponentCheck<T>(bool forceAdd = true) where T : Component
