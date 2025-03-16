@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Wood7OldAlbedo
+    _NormalTex: Wood7OldNormal
+shader: Pbr
+name: Wood7Old.0

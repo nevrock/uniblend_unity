@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: PaletteMain.001
+    _NormalTex: Leather1Normal
+shader: Pbr
+name: Leather

@@ -1,0 +1,4 @@
+properties: 
+    _MainTex: PaletteMain.001
+shader: Pbr
+name: Hair

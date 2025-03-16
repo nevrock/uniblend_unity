@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: MetalshinyclearAlbedo
+    _NormalTex: MetalshinyclearNormal
+shader: Pbr
+name: MetalShinyClear.0

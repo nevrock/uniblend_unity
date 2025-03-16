@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Rock0Albedo
+    _NormalTex: Rock0Normal
+shader: Pbr
+name: Rock0.0

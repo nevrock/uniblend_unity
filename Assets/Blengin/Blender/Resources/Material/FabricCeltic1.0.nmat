@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Fabricceltic1Albedo
+    _NormalTex: Fabricceltic1Normal
+shader: Pbr
+name: FabricCeltic1.0

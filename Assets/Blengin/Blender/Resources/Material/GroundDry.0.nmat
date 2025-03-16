@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GrounddryAlbedo
+    _NormalTex: GrounddryNormal
+shader: Pbr
+name: GroundDry.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Wood4Albedo
+    _NormalTex: Wood4Normal
+shader: Pbr
+name: Wood4.0

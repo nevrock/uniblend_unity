@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: WoodsimpledAlbedo
+    _NormalTex: WoodsimpledNormal
+shader: Pbr
+name: WoodSimpleD.0

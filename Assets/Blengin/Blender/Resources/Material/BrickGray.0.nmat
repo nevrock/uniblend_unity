@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: BrickgrayAlbedo
+    _NormalTex: BrickgrayNormal
+shader: Pbr
+name: BrickGray.0

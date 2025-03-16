@@ -1,5 +1,0 @@
-properties: 
-    _MainTex: PaletteMain.001
-    _Smoothness: 0.5
-shader: Pbr
-name: Player

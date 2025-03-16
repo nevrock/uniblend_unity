@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Groundsand1Albedo
+    _NormalTex: Groundsand1Normal
+shader: Pbr
+name: GroundSand1.0

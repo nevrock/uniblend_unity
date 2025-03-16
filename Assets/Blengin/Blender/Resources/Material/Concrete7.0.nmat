@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Concrete7Albedo
+    _NormalTex: Concrete7Normal
+shader: Pbr
+name: Concrete7.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Asphalt.003Albedo
+    _NormalTex: AsphaltNormal.002
+shader: Pbr
+name: Asphalt.002

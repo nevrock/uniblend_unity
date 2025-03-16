@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Steelrough2Albedo
+    _NormalTex: Steelrough2Normal
+shader: Pbr
+name: SteelRough2.0

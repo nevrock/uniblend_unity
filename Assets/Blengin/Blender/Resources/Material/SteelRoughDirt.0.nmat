@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: SteelroughdirtAlbedo
+    _NormalTex: SteelroughdirtNormal
+shader: Pbr
+name: SteelRoughDirt.0

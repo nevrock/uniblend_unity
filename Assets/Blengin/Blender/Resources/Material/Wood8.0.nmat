@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Wood8Albedo
+    _NormalTex: Wood8Normal
+shader: Pbr
+name: Wood8.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: RocksimpleAlbedo
+    _NormalTex: RocksimpleNormal
+shader: Pbr
+name: RockSimple.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GrassclearAlbedo
+    _NormalTex: GrassclearNormal
+shader: Pbr
+name: GrassClear.0

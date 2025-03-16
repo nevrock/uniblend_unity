@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Groundgrass1Albedo
+    _NormalTex: Groundgrass1Normal
+shader: Pbr
+name: GroundGrass1.0

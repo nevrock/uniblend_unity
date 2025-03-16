@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Roof1Albedo
+    _NormalTex: Roof1Normal
+shader: Pbr
+name: Roof1.0

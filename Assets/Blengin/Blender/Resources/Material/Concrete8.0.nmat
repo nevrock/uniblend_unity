@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Concrete8Albedo
+    _NormalTex: Concrete8Normal
+shader: Pbr
+name: Concrete8.0

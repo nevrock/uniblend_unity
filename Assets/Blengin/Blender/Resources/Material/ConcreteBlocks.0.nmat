@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: ConcreteblocksAlbedo
+    _NormalTex: ConcreteblocksNormal
+shader: Pbr
+name: ConcreteBlocks.0

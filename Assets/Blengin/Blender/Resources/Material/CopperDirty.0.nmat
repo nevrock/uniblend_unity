@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: CopperdirtyAlbedo
+    _NormalTex: CopperdirtyNormal
+shader: Pbr
+name: CopperDirty.0

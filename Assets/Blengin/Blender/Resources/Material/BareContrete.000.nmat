@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: BarecontreteAlbedo
+    _NormalTex: BarecontreteNormal
+shader: Pbr
+name: BareContrete.000

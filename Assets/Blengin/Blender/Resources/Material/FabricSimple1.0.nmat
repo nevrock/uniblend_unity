@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Fabricsimple1Albedo
+    _NormalTex: Fabricsimple1Normal
+shader: Pbr
+name: FabricSimple1.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Concrete12Albedo
+    _NormalTex: Concrete12Normal
+shader: Pbr
+name: Concrete12.0

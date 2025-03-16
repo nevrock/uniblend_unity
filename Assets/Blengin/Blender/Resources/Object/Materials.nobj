@@ -1,0 +1,1442 @@
+name: Materials
+children: 
+    SphereAsphalt.0: 
+        name: SphereAsphalt.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Asphalt.000]
+        FBXFile: SphereAsphalt.0
+        FBX: true
+    SphereAsphalt.1: 
+        name: SphereAsphalt.1
+        children: 
+        transform: 
+            position: [3.0, 1.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Asphalt.001]
+        FBXFile: SphereAsphalt.1
+        FBX: true
+    SphereAsphalt.2: 
+        name: SphereAsphalt.2
+        children: 
+        transform: 
+            position: [6.0, 1.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Asphalt.002]
+        FBXFile: SphereAsphalt.2
+        FBX: true
+    SphereBareContrete.0: 
+        name: SphereBareContrete.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BareContrete.000]
+        FBXFile: SphereBareContrete.0
+        FBX: true
+    SphereBark1.0: 
+        name: SphereBark1.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Bark.000]
+        FBXFile: SphereBark1.0
+        FBX: true
+    SphereBark2.0: 
+        name: SphereBark2.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Bark.001]
+        FBXFile: SphereBark2.0
+        FBX: true
+    SphereBrassAgedOldRough.0: 
+        name: SphereBrassAgedOldRough.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrassAgedOldRough.000]
+        FBXFile: SphereBrassAgedOldRough.0
+        FBX: true
+    SphereBrassOld.0: 
+        name: SphereBrassOld.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrassOld.0]
+        FBXFile: SphereBrassOld.0
+        FBX: true
+    SphereBrassPureSimple.0: 
+        name: SphereBrassPureSimple.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrassPureSimple.0]
+        FBXFile: SphereBrassPureSimple.0
+        FBX: true
+    SphereBrick1.0: 
+        name: SphereBrick1.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Brick1.0]
+        FBXFile: SphereBrick1.0
+        FBX: true
+    SphereBrickAged.0: 
+        name: SphereBrickAged.0
+        children: 
+        transform: 
+            position: [21.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickAged.0]
+        FBXFile: SphereBrickAged.0
+        FBX: true
+    SphereBrickGray2.0: 
+        name: SphereBrickGray2.0
+        children: 
+        transform: 
+            position: [24.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickGray2.0]
+        FBXFile: SphereBrickGray2.0
+        FBX: true
+    SphereBrickGray.0: 
+        name: SphereBrickGray.0
+        children: 
+        transform: 
+            position: [27.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickGray.0]
+        FBXFile: SphereBrickGray.0
+        FBX: true
+    SphereBrickSimple2.0: 
+        name: SphereBrickSimple2.0
+        children: 
+        transform: 
+            position: [30.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickSimple2.0]
+        FBXFile: SphereBrickSimple2.0
+        FBX: true
+    SphereBrickSimple.0: 
+        name: SphereBrickSimple.0
+        children: 
+        transform: 
+            position: [33.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickSimple.0]
+        FBXFile: SphereBrickSimple.0
+        FBX: true
+    SphereBrickStone.0: 
+        name: SphereBrickStone.0
+        children: 
+        transform: 
+            position: [36.0, 1.0, 3.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [BrickStone.0]
+        FBXFile: SphereBrickStone.0
+        FBX: true
+    SphereCamouflage01Clear.0: 
+        name: SphereCamouflage01Clear.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Camouflage01Clear.0]
+        FBXFile: SphereCamouflage01Clear.0
+        FBX: true
+    SphereCamouflageDesert2.0: 
+        name: SphereCamouflageDesert2.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CamouflageDesert2.0]
+        FBXFile: SphereCamouflageDesert2.0
+        FBX: true
+    SphereCamouflageDesert.0: 
+        name: SphereCamouflageDesert.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CamouflageDesert.0]
+        FBXFile: SphereCamouflageDesert.0
+        FBX: true
+    SphereCamouflageGreen2.0: 
+        name: SphereCamouflageGreen2.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CamouflageGreen2.0]
+        FBXFile: SphereCamouflageGreen2.0
+        FBX: true
+    SphereCamouflageGreen.0: 
+        name: SphereCamouflageGreen.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CamouflageGreen.0]
+        FBXFile: SphereCamouflageGreen.0
+        FBX: true
+    SphereCamouflageSnow.0: 
+        name: SphereCamouflageSnow.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CamouflageSnow.0]
+        FBXFile: SphereCamouflageSnow.0
+        FBX: true
+    SphereCloth2.0: 
+        name: SphereCloth2.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Cloth2.0]
+        FBXFile: SphereCloth2.0
+        FBX: true
+    SphereCloth3.0: 
+        name: SphereCloth3.0
+        children: 
+        transform: 
+            position: [21.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Cloth3.0]
+        FBXFile: SphereCloth3.0
+        FBX: true
+    SphereClothStripped.0: 
+        name: SphereClothStripped.0
+        children: 
+        transform: 
+            position: [24.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ClothStripped.0]
+        FBXFile: SphereClothStripped.0
+        FBX: true
+    SphereClothWool.0: 
+        name: SphereClothWool.0
+        children: 
+        transform: 
+            position: [27.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ClothWool.0]
+        FBXFile: SphereClothWool.0
+        FBX: true
+    SphereConcrete10.0: 
+        name: SphereConcrete10.0
+        children: 
+        transform: 
+            position: [30.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete10.0]
+        FBXFile: SphereConcrete10.0
+        FBX: true
+    SphereConcrete11.0: 
+        name: SphereConcrete11.0
+        children: 
+        transform: 
+            position: [33.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete11.0]
+        FBXFile: SphereConcrete11.0
+        FBX: true
+    SphereConcrete12.0: 
+        name: SphereConcrete12.0
+        children: 
+        transform: 
+            position: [36.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete12.0]
+        FBXFile: SphereConcrete12.0
+        FBX: true
+    SphereConcrete13.0: 
+        name: SphereConcrete13.0
+        children: 
+        transform: 
+            position: [39.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete13.0]
+        FBXFile: SphereConcrete13.0
+        FBX: true
+    SphereConcrete2.0: 
+        name: SphereConcrete2.0
+        children: 
+        transform: 
+            position: [42.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete2.0]
+        FBXFile: SphereConcrete2.0
+        FBX: true
+    SphereConcrete3.0: 
+        name: SphereConcrete3.0
+        children: 
+        transform: 
+            position: [45.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete3.0]
+        FBXFile: SphereConcrete3.0
+        FBX: true
+    SphereConcrete4.0: 
+        name: SphereConcrete4.0
+        children: 
+        transform: 
+            position: [48.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete4.0]
+        FBXFile: SphereConcrete4.0
+        FBX: true
+    SphereConcrete5.0: 
+        name: SphereConcrete5.0
+        children: 
+        transform: 
+            position: [51.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete5.0]
+        FBXFile: SphereConcrete5.0
+        FBX: true
+    SphereConcrete6.0: 
+        name: SphereConcrete6.0
+        children: 
+        transform: 
+            position: [54.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete6.0]
+        FBXFile: SphereConcrete6.0
+        FBX: true
+    SphereConcrete7.0: 
+        name: SphereConcrete7.0
+        children: 
+        transform: 
+            position: [57.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete7.0]
+        FBXFile: SphereConcrete7.0
+        FBX: true
+    SphereConcrete8.0: 
+        name: SphereConcrete8.0
+        children: 
+        transform: 
+            position: [60.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete8.0]
+        FBXFile: SphereConcrete8.0
+        FBX: true
+    SphereConcrete9.0: 
+        name: SphereConcrete9.0
+        children: 
+        transform: 
+            position: [63.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Concrete9.0]
+        FBXFile: SphereConcrete9.0
+        FBX: true
+    SphereConcreteBlocks.0: 
+        name: SphereConcreteBlocks.0
+        children: 
+        transform: 
+            position: [66.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ConcreteBlocks.0]
+        FBXFile: SphereConcreteBlocks.0
+        FBX: true
+    SphereConcreteCracked.0: 
+        name: SphereConcreteCracked.0
+        children: 
+        transform: 
+            position: [69.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ConcreteCracked.0]
+        FBXFile: SphereConcreteCracked.0
+        FBX: true
+    SphereConcretePainted.0: 
+        name: SphereConcretePainted.0
+        children: 
+        transform: 
+            position: [72.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ConcretePainted.0]
+        FBXFile: SphereConcretePainted.0
+        FBX: true
+    SphereConcreteSimple2.0: 
+        name: SphereConcreteSimple2.0
+        children: 
+        transform: 
+            position: [75.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ConcreteSimple2.0]
+        FBXFile: SphereConcreteSimple2.0
+        FBX: true
+    SphereConcreteSimple.0: 
+        name: SphereConcreteSimple.0
+        children: 
+        transform: 
+            position: [78.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [ConcreteSimple.0]
+        FBXFile: SphereConcreteSimple.0
+        FBX: true
+    SphereCopperAgedOldRough.0: 
+        name: SphereCopperAgedOldRough.0
+        children: 
+        transform: 
+            position: [81.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CopperAgedOldRough.0]
+        FBXFile: SphereCopperAgedOldRough.0
+        FBX: true
+    SphereCopper.0: 
+        name: SphereCopper.0
+        children: 
+        transform: 
+            position: [84.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Copper.0]
+        FBXFile: SphereCopper.0
+        FBX: true
+    SphereCopperDirty.0: 
+        name: SphereCopperDirty.0
+        children: 
+        transform: 
+            position: [87.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CopperDirty.0]
+        FBXFile: SphereCopperDirty.0
+        FBX: true
+    SphereCopperPure.0: 
+        name: SphereCopperPure.0
+        children: 
+        transform: 
+            position: [90.0, 1.0, 6.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [CopperPure.0]
+        FBXFile: SphereCopperPure.0
+        FBX: true
+    SphereFabricCeltic1.0: 
+        name: SphereFabricCeltic1.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 9.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [FabricCeltic1.0]
+        FBXFile: SphereFabricCeltic1.0
+        FBX: true
+    SphereFabricCeltic2.0: 
+        name: SphereFabricCeltic2.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 9.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [FabricCeltic2.0]
+        FBXFile: SphereFabricCeltic2.0
+        FBX: true
+    SphereFabricSimple1.0: 
+        name: SphereFabricSimple1.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 9.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [FabricSimple1.0]
+        FBXFile: SphereFabricSimple1.0
+        FBX: true
+    SphereGrassClear.0: 
+        name: SphereGrassClear.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GrassClear.0]
+        FBXFile: SphereGrassClear.0
+        FBX: true
+    SphereGround1.0: 
+        name: SphereGround1.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Ground1.0]
+        FBXFile: SphereGround1.0
+        FBX: true
+    SphereGround2.0: 
+        name: SphereGround2.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Ground2.0]
+        FBXFile: SphereGround2.0
+        FBX: true
+    SphereGround3.0: 
+        name: SphereGround3.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Ground3.0]
+        FBXFile: SphereGround3.0
+        FBX: true
+    SphereGround4.0: 
+        name: SphereGround4.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Ground4.0]
+        FBXFile: SphereGround4.0
+        FBX: true
+    SphereGroundBeach2.0: 
+        name: SphereGroundBeach2.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundBeach2.0]
+        FBXFile: SphereGroundBeach2.0
+        FBX: true
+    SphereGroundBeach.0: 
+        name: SphereGroundBeach.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundBeach.0]
+        FBXFile: SphereGroundBeach.0
+        FBX: true
+    SphereGroundDirt.0: 
+        name: SphereGroundDirt.0
+        children: 
+        transform: 
+            position: [21.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundDirt.0]
+        FBXFile: SphereGroundDirt.0
+        FBX: true
+    SphereGroundDry.0: 
+        name: SphereGroundDry.0
+        children: 
+        transform: 
+            position: [24.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundDry.0]
+        FBXFile: SphereGroundDry.0
+        FBX: true
+    SphereGroundGrass1.0: 
+        name: SphereGroundGrass1.0
+        children: 
+        transform: 
+            position: [27.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundGrass1.0]
+        FBXFile: SphereGroundGrass1.0
+        FBX: true
+    SphereGroundGrass2.0: 
+        name: SphereGroundGrass2.0
+        children: 
+        transform: 
+            position: [30.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundGrass2.0]
+        FBXFile: SphereGroundGrass2.0
+        FBX: true
+    SphereGroundMud.0: 
+        name: SphereGroundMud.0
+        children: 
+        transform: 
+            position: [33.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundMud.0]
+        FBXFile: SphereGroundMud.0
+        FBX: true
+    SphereGroundRock.0: 
+        name: SphereGroundRock.0
+        children: 
+        transform: 
+            position: [36.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundRock.0]
+        FBXFile: SphereGroundRock.0
+        FBX: true
+    SphereGroundSand1.0: 
+        name: SphereGroundSand1.0
+        children: 
+        transform: 
+            position: [39.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundSand1.0]
+        FBXFile: SphereGroundSand1.0
+        FBX: true
+    SphereGroundSnow1.0: 
+        name: SphereGroundSnow1.0
+        children: 
+        transform: 
+            position: [42.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundSnow1.0]
+        FBXFile: SphereGroundSnow1.0
+        FBX: true
+    SphereGroundSnow2.0: 
+        name: SphereGroundSnow2.0
+        children: 
+        transform: 
+            position: [45.0, 1.0, 12.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [GroundSnow2.0]
+        FBXFile: SphereGroundSnow2.0
+        FBX: true
+    SphereLeather1.0: 
+        name: SphereLeather1.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 15.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Leather1.0]
+        FBXFile: SphereLeather1.0
+        FBX: true
+    SphereLeather2.0: 
+        name: SphereLeather2.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 15.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Leather2.0]
+        FBXFile: SphereLeather2.0
+        FBX: true
+    SphereMetal01.0: 
+        name: SphereMetal01.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Metal01.0]
+        FBXFile: SphereMetal01.0
+        FBX: true
+    SphereMetal02.0: 
+        name: SphereMetal02.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Metal02.0]
+        FBXFile: SphereMetal02.0
+        FBX: true
+    SphereMetal03.0: 
+        name: SphereMetal03.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Metal03.0]
+        FBXFile: SphereMetal03.0
+        FBX: true
+    SphereMetalDirt.0: 
+        name: SphereMetalDirt.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalDirt.0]
+        FBXFile: SphereMetalDirt.0
+        FBX: true
+    SphereMetalFloor1.0: 
+        name: SphereMetalFloor1.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalFloor1.0]
+        FBXFile: SphereMetalFloor1.0
+        FBX: true
+    SphereMetalFloor2.0: 
+        name: SphereMetalFloor2.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalFloor2.0]
+        FBXFile: SphereMetalFloor2.0
+        FBX: true
+    SphereMetalFloorGrateCircle.0: 
+        name: SphereMetalFloorGrateCircle.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalFloorGrateCircle.0]
+        FBXFile: SphereMetalFloorGrateCircle.0
+        FBX: true
+    SphereMetalHammered.0: 
+        name: SphereMetalHammered.0
+        children: 
+        transform: 
+            position: [21.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalHammered.0]
+        FBXFile: SphereMetalHammered.0
+        FBX: true
+    SphereMetalPainted.0: 
+        name: SphereMetalPainted.0
+        children: 
+        transform: 
+            position: [24.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalPainted.0]
+        FBXFile: SphereMetalPainted.0
+        FBX: true
+    SphereMetalRusted2.0: 
+        name: SphereMetalRusted2.0
+        children: 
+        transform: 
+            position: [27.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalRusted2.0]
+        FBXFile: SphereMetalRusted2.0
+        FBX: true
+    SphereMetalRusted.0: 
+        name: SphereMetalRusted.0
+        children: 
+        transform: 
+            position: [30.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalRusted.0]
+        FBXFile: SphereMetalRusted.0
+        FBX: true
+    SphereMetalShinyClear.0: 
+        name: SphereMetalShinyClear.0
+        children: 
+        transform: 
+            position: [33.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalShinyClear.0]
+        FBXFile: SphereMetalShinyClear.0
+        FBX: true
+    SphereMetalShinyRusted.0: 
+        name: SphereMetalShinyRusted.0
+        children: 
+        transform: 
+            position: [36.0, 1.0, 18.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [MetalShinyRusted.0]
+        FBXFile: SphereMetalShinyRusted.0
+        FBX: true
+    SpherePlasticRough.0: 
+        name: SpherePlasticRough.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 21.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [PlasticRough.0]
+        FBXFile: SpherePlasticRough.0
+        FBX: true
+    SphereRock0.0: 
+        name: SphereRock0.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 24.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Rock0.0]
+        FBXFile: SphereRock0.0
+        FBX: true
+    SphereRockMoss.0: 
+        name: SphereRockMoss.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 24.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [RockMoss.0]
+        FBXFile: SphereRockMoss.0
+        FBX: true
+    SphereRockSimple.0: 
+        name: SphereRockSimple.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 24.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [RockSimple.0]
+        FBXFile: SphereRockSimple.0
+        FBX: true
+    SphereRoof1.0: 
+        name: SphereRoof1.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 24.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Roof1.0]
+        FBXFile: SphereRoof1.0
+        FBX: true
+    SphereSteelOld.0: 
+        name: SphereSteelOld.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelOld.0]
+        FBXFile: SphereSteelOld.0
+        FBX: true
+    SphereSteelRough2.0: 
+        name: SphereSteelRough2.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelRough2.0]
+        FBXFile: SphereSteelRough2.0
+        FBX: true
+    SphereSteelRough2Dirt.0: 
+        name: SphereSteelRough2Dirt.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelRough2Dirt.0]
+        FBXFile: SphereSteelRough2Dirt.0
+        FBX: true
+    SphereSteelRough.0: 
+        name: SphereSteelRough.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelRough.0]
+        FBXFile: SphereSteelRough.0
+        FBX: true
+    SphereSteelRoughDirt.0: 
+        name: SphereSteelRoughDirt.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelRoughDirt.0]
+        FBXFile: SphereSteelRoughDirt.0
+        FBX: true
+    SphereSteelRusted.0: 
+        name: SphereSteelRusted.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [SteelRusted.0]
+        FBXFile: SphereSteelRusted.0
+        FBX: true
+    SphereStripesAsphalt.0: 
+        name: SphereStripesAsphalt.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 27.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [StripesAsphalt.0]
+        FBXFile: SphereStripesAsphalt.0
+        FBX: true
+    SphereVelvet.0: 
+        name: SphereVelvet.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 30.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Velvet.0]
+        FBXFile: SphereVelvet.0
+        FBX: true
+    SphereVelvetDirt.0: 
+        name: SphereVelvetDirt.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 30.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [VelvetDirt.0]
+        FBXFile: SphereVelvetDirt.0
+        FBX: true
+    SphereWood10.0: 
+        name: SphereWood10.0
+        children: 
+        transform: 
+            position: [0.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood10.0]
+        FBXFile: SphereWood10.0
+        FBX: true
+    SphereWood1.0: 
+        name: SphereWood1.0
+        children: 
+        transform: 
+            position: [3.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood1.0]
+        FBXFile: SphereWood1.0
+        FBX: true
+    SphereWood2.0: 
+        name: SphereWood2.0
+        children: 
+        transform: 
+            position: [6.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood2.0]
+        FBXFile: SphereWood2.0
+        FBX: true
+    SphereWood3.0: 
+        name: SphereWood3.0
+        children: 
+        transform: 
+            position: [9.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood3.0]
+        FBXFile: SphereWood3.0
+        FBX: true
+    SphereWood4.0: 
+        name: SphereWood4.0
+        children: 
+        transform: 
+            position: [12.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood4.0]
+        FBXFile: SphereWood4.0
+        FBX: true
+    SphereWood5.0: 
+        name: SphereWood5.0
+        children: 
+        transform: 
+            position: [15.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood5.0]
+        FBXFile: SphereWood5.0
+        FBX: true
+    SphereWood6.0: 
+        name: SphereWood6.0
+        children: 
+        transform: 
+            position: [18.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood6.0]
+        FBXFile: SphereWood6.0
+        FBX: true
+    SphereWood7Old.0: 
+        name: SphereWood7Old.0
+        children: 
+        transform: 
+            position: [21.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood7Old.0]
+        FBXFile: SphereWood7Old.0
+        FBX: true
+    SphereWood8.0: 
+        name: SphereWood8.0
+        children: 
+        transform: 
+            position: [24.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood8.0]
+        FBXFile: SphereWood8.0
+        FBX: true
+    SphereWood9.0: 
+        name: SphereWood9.0
+        children: 
+        transform: 
+            position: [27.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Wood9.0]
+        FBXFile: SphereWood9.0
+        FBX: true
+    SphereWoodPlankDamaged.0: 
+        name: SphereWoodPlankDamaged.0
+        children: 
+        transform: 
+            position: [30.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [WoodPlankDamaged.0]
+        FBXFile: SphereWoodPlankDamaged.0
+        FBX: true
+    SphereWoodPlankDamagedDirty.0: 
+        name: SphereWoodPlankDamagedDirty.0
+        children: 
+        transform: 
+            position: [33.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [WoodPlankDamagedDirty.0]
+        FBXFile: SphereWoodPlankDamagedDirty.0
+        FBX: true
+    SphereWoodSimpleD.0: 
+        name: SphereWoodSimpleD.0
+        children: 
+        transform: 
+            position: [36.0, 1.0, 33.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [WoodSimpleD.0]
+        FBXFile: SphereWoodSimpleD.0
+        FBX: true
+    Sphere: 
+        name: Sphere
+        children: 
+        transform: 
+            position: [0.0, 25.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Sphere
+        FBX: true
+    Sphere.002: 
+        name: Sphere.002
+        children: 
+        transform: 
+            position: [4.0, 25.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Sphere.002
+        FBX: true
+    Sphere.001: 
+        name: Sphere.001
+        children: 
+        transform: 
+            position: [8.0, 25.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Sphere.001
+        FBX: true

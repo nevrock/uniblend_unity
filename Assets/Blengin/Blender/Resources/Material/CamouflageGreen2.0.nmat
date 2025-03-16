@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Camouflagegreen2Albedo
+    _NormalTex: Camouflagegreen2Normal
+shader: Pbr
+name: CamouflageGreen2.0

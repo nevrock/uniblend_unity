@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: ConcretecrackedAlbedo
+    _NormalTex: ConcretecrackedNormal
+shader: Pbr
+name: ConcreteCracked.0

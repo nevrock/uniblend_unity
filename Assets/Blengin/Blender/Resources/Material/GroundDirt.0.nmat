@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GrounddirtAlbedo
+    _NormalTex: GrounddirtNormal
+shader: Pbr
+name: GroundDirt.0

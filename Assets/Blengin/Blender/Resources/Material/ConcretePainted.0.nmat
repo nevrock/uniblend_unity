@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: ConcretepaintedAlbedo
+    _NormalTex: ConcretepaintedNormal
+shader: Pbr
+name: ConcretePainted.0

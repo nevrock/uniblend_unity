@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: PlasticroughAlbedo
+    _NormalTex: PlasticroughNormal
+shader: Pbr
+name: PlasticRough.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: MetalhammeredAlbedo
+    _NormalTex: MetalhammeredNormal
+shader: Pbr
+name: MetalHammered.0

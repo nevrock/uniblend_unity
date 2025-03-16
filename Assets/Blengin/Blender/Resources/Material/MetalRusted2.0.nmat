@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Metalrusted2Albedo
+    _NormalTex: Metalrusted2Normal
+shader: Pbr
+name: MetalRusted2.0

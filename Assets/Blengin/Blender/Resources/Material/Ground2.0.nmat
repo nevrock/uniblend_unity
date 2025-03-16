@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Ground2Albedo
+    _NormalTex: Ground2Normal
+shader: Pbr
+name: Ground2.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GroundbeachAlbedo
+    _NormalTex: GroundbeachNormal
+shader: Pbr
+name: GroundBeach.0

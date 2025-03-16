@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GroundrockAlbedo
+    _NormalTex: GroundrockNormal
+shader: Pbr
+name: GroundRock.0

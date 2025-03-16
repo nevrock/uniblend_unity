@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: PaletteMain.001
+    _NormalTex: Cloth2Normal
+shader: Pbr
+name: Cloth

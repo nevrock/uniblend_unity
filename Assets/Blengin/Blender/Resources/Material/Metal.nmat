@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: PaletteMain.001
+    _NormalTex: SteelOldNormal
+shader: Pbr
+name: Metal

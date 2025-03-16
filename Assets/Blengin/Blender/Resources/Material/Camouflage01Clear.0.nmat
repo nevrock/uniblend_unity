@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Camouflage01ClearAlbedo
+    _NormalTex: Camouflage01ClearNormal
+shader: Pbr
+name: Camouflage01Clear.0

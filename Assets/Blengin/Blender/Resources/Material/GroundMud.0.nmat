@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: GroundmudAlbedo
+    _NormalTex: GroundmudNormal
+shader: Pbr
+name: GroundMud.0

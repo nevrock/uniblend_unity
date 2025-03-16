@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: BrickagedAlbedo
+    _NormalTex: BrickagedNormal
+shader: Pbr
+name: BrickAged.0

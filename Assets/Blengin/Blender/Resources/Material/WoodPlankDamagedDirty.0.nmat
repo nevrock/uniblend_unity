@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: WoodplankdamageddirtyAlbedo
+    _NormalTex: WoodplankdamageddirtyNormal
+shader: Pbr
+name: WoodPlankDamagedDirty.0

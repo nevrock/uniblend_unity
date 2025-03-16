@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: BrickstoneAlbedo
+    _NormalTex: BrickstoneNormal
+shader: Pbr
+name: BrickStone.0

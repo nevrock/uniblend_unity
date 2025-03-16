@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Bark2Albedo
+    _NormalTex: Bark2Normal
+shader: Pbr
+name: Bark.001

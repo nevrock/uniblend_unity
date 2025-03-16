@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Metalfloor1Albedo
+    _NormalTex: Metalfloor1Normal
+shader: Pbr
+name: MetalFloor1.0

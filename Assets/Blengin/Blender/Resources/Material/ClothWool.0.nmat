@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: ClothwoolAlbedo
+    _NormalTex: ClothwoolNormal
+shader: Pbr
+name: ClothWool.0

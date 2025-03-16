@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Camouflagedesert2Albedo
+    _NormalTex: Camouflagedesert2Normal
+shader: Pbr
+name: CamouflageDesert2.0

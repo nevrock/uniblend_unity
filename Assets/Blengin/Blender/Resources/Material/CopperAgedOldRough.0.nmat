@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: CopperagedoldroughAlbedo
+    _NormalTex: CopperagedoldroughNormal
+shader: Pbr
+name: CopperAgedOldRough.0

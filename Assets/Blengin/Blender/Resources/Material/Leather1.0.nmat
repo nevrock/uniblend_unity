@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Leather1Albedo
+    _NormalTex: Leather1Normal
+shader: Pbr
+name: Leather1.0

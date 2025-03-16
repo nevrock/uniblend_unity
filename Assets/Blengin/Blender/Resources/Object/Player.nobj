@@ -1,9 +1,9 @@
 name: Player
 children: 
-    Armature: 
-        name: Armature
+    RigPlayer: 
+        name: RigPlayer
         children: 
-            Armature: 
+            RigPlayer: 
                 children: 
                     Root: 
                         name: Root
@@ -108,7 +108,7 @@ children:
                                                                                                 poleName: HandPoleIK.L
                                                                                                 chainLength: 3
                                                                                                 snapBackStrength: 1.0
-                                                                                                poleAngle: 0.0
+                                                                                                poleAngle: 3.1415927410125732
                                                                                                 iterations: 500
                                                                                                 copyRotationStrength: 1.0
                                                                                                 copyRotationFromTarget: true
@@ -241,6 +241,7 @@ children:
                         name: FootPoleIK.R
                         children: 
                         components: 
+                components: 
             Armor.001: 
                 name: Armor.001
                 children: 
@@ -251,7 +252,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Metal]
             Belt.001: 
                 name: Belt.001
                 children: 
@@ -262,7 +263,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Leather, Metal]
             Belt.002: 
                 name: Belt.002
                 children: 
@@ -273,7 +274,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
             BeltBody: 
                 name: BeltBody
                 children: 
@@ -284,7 +285,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Leather]
             Body: 
                 name: Body
                 children: 
@@ -295,7 +296,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
             Cloak: 
                 name: Cloak
                 children: 
@@ -306,7 +307,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Cloth]
             Hair.001: 
                 name: Hair.001
                 children: 
@@ -317,7 +318,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
             Hands.001: 
                 name: Hands.001
                 children: 
@@ -328,7 +329,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Cloth]
             Head.001: 
                 name: Head.001
                 children: 
@@ -339,7 +340,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Skin]
             Helmet.001: 
                 name: Helmet.001
                 children: 
@@ -350,7 +351,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
             Legs.003: 
                 name: Legs.003
                 children: 
@@ -361,7 +362,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
             Legs.004: 
                 name: Legs.004
                 children: 
@@ -372,7 +373,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Cloth, Leather, Metal]
             Mask.001: 
                 name: Mask.001
                 children: 
@@ -383,7 +384,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Metal, Glasses]
             Satchel: 
                 name: Satchel
                 children: 
@@ -394,7 +395,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Leather, Metal]
             ShirtLong.001: 
                 name: ShirtLong.001
                 children: 
@@ -405,7 +406,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Cloth]
             ShirtLong.002: 
                 name: ShirtLong.002
                 children: 
@@ -416,7 +417,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Cloth]
             Watch: 
                 name: Watch
                 children: 
@@ -427,7 +428,7 @@ children:
                 components: 
                     mesh: 
                         type: nAnimatedMeshRenderer
-                        materials: [Player]
+                        materials: [Hair]
         transform: 
             position: [0.0, 0.0, 0.0]
             rotation: [0.0, 0.0, 0.0]
@@ -438,5 +439,66 @@ children:
                 animations: [_Base, Walk]
             nIKConstroller: 
                 type: nIKController
-        FBXFile: Armature
+        FBXFile: RigPlayer
+        FBX: true
+    Cylinder.001: 
+        name: Cylinder.001
+        children: 
+        transform: 
+            position: [0.0, 2.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.7000000476837158, 1.7000000476837158, 1.7000000476837158]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+                materials: [Hair]
+        FBXFile: Cylinder.001
+        FBX: true
+    Cube: 
+        name: Cube
+        children: 
+        transform: 
+            position: [0.0, 1.600000023841858, -2.0]
+            rotation: [15.000000417413029, 0.0, 0.0]
+            scale: [1.0, 1.0, 0.6299999952316284]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Cube
+        FBX: true
+    Cylinder.002: 
+        name: Cylinder.002
+        children: 
+        transform: 
+            position: [0.0, 2.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.7000000476837158, 1.7000000476837158, 1.7000000476837158]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Cylinder.002
+        FBX: true
+    Cube.001: 
+        name: Cube.001
+        children: 
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Cube.001
+        FBX: true
+    Plane: 
+        name: Plane
+        children: 
+        transform: 
+            position: [0.0, 0.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Plane
         FBX: true

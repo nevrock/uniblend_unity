@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: BrasspuresimpleAlbedo
+    _NormalTex: BrasspuresimpleNormal
+shader: Pbr
+name: BrassPureSimple.0

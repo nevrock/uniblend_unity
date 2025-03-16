@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: MetaldirtAlbedo
+    _NormalTex: MetaldirtNormal
+shader: Pbr
+name: MetalDirt.0

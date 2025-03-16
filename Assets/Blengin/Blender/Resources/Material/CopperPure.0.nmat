@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: CopperpureAlbedo
+    _NormalTex: CopperpureNormal
+shader: Pbr
+name: CopperPure.0

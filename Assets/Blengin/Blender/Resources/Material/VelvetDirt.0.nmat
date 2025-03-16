@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: VelvetdirtAlbedo
+    _NormalTex: VelvetdirtNormal
+shader: Pbr
+name: VelvetDirt.0

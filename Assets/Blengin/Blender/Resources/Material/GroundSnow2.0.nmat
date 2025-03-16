@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Groundsnow2Albedo
+    _NormalTex: Groundsnow2Normal
+shader: Pbr
+name: GroundSnow2.0

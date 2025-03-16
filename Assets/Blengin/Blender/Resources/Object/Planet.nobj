@@ -1,0 +1,14 @@
+name: Planet
+children: 
+    Planet: 
+        name: Planet
+        children: 
+        transform: 
+            position: [0.0, 1.0, 0.0]
+            rotation: [0.0, 0.0, 0.0]
+            scale: [1.0, 1.0, 1.0]
+        components: 
+            mesh: 
+                type: nMeshRenderer
+        FBXFile: Planet
+        FBX: true

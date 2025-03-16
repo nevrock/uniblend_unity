@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Metal03Albedo
+    _NormalTex: Metal03Normal
+shader: Pbr
+name: Metal03.0

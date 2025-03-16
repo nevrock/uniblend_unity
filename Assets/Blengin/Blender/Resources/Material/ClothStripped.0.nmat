@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: ClothstrippedAlbedo
+    _NormalTex: ClothstrippedNormal
+shader: Pbr
+name: ClothStripped.0

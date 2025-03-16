@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: SteeloldAlbedo
+    _NormalTex: SteeloldNormal
+shader: Pbr
+name: SteelOld.0

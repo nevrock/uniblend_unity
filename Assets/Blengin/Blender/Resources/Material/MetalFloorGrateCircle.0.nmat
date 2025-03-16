@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: MetalfloorgratecircleAlbedo
+    _NormalTex: MetalfloorgratecircleNormal
+shader: Pbr
+name: MetalFloorGrateCircle.0

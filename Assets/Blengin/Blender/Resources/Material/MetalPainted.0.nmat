@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: MetalpaintedAlbedo
+    _NormalTex: MetalpaintedNormal
+shader: Pbr
+name: MetalPainted.0

@@ -1,0 +1,5 @@
+properties: 
+    _MainTex: Bricksimple2Albedo
+    _NormalTex: Bricksimple2Normal
+shader: Pbr
+name: BrickSimple2.0
